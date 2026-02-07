@@ -1,3 +1,29 @@
+@font-face {
+    font-family: 'SansSerif';
+    src: url('/public/fonts/sanserif.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Serif';
+    src: url('/public/fonts/serif.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
+:root {
+  --primary-color: #d3d0ca;
+  --secondary-color: #bdbc95;
+  --accent: #013b47;
+  --light-grey: #efefef;
+  --background-color: #f8f9fa;
+  --text-color: #000000;
+  --border-color: #000000;
+  --serif: 'Serif', serif;
+  --sans-serif: 'SansSerif', sans-serif;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,14 +32,213 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: var(--sans-serif);
+  letter-spacing: .2em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+button {
+  padding: 0.75em 1.5em;
+  background-color: var(--accent);
+  border: 1px solid var(--secondary-color);
+  font-family: var(--sans-serif);
+  font-size: 1.25rem;
+  letter-spacing: .2em;
+  color: var(--secondary-color);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  cursor: pointer;
+}
+
+section {
+  background-color: var(--light-grey);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px;
+  color: var(--text-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.nav {
+  display: flex;
+  gap: 1.8rem;
+}
+
+.nav a {
+  color: var(--text-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: 1.2rem;
+}
+
+.socials {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  
+}
+
+.socials a {
+  color: var(--text-color);
+  transition: color 0.3s ease;
+}
+
+.header .logo {
+  width: 150px;
+}
+
+@media screen and (max-width: 767px) {
+  .desktop {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .mobileMenu {
+    display: none;
+  }
+}
+
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('/public/images/el-cielo-interior-14.jpg') center/cover no-repeat;
+  opacity: 0.25;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  z-index: 1;
+}
+
+.hero-text {
+  color: var(--accent);
+  text-align: center;
+  font-size: 2.5rem;
+  letter-spacing: .15em;
+  font-family: var(--serif);
+}
+
+.hero-text span {
+  display: block;
+  margin-bottom: 0.25em;
+}
+
+.story {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 3rem;
+  font-family: var(--serif);
+  font-size: 2.75rem;
+  color: var(--accent);
+  padding-top: 128px;
+}
+
+.story > span {
+  display: block;
+  text-align: center;
+}
+
+.story-divider {
+  border-left: 1px solid var(--border-color);
+  height: 100px;
+}
+
+.definition {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 3rem;
+  font-family: var(--serif);
+  color: var(--accent);
+  padding-bottom: 256px;
+  text-align: center;
+}
+
+.definition > p {
+  font-size: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.definition > p > span {
+  display: block;
+}
+
+.definition .large {
+  font-size: 1.75em;
+}
+
+.footer {
+  padding: 64px 32px;
+  background-color: var(--primary-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+  text-align: center;
+  font-size: .9rem;
+}
+
+.footer .logo {
+  width: 150px;
+}
+
+.footer span {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.hours {
+  white-space: nowrap;
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .5rem;
+}
+
+.contact a {
+  color: var(--text-color);
+  text-decoration: none;
+} 
+
+.copyright, .credit {
+  font-size: 0.75rem;
+  letter-spacing: .15em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin-bottom: 0.65em;
 }
