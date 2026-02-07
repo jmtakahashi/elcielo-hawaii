@@ -1,21 +1,36 @@
 import React from 'react'
 
 export default function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className='footer'>
-      <image
-        src='/assets/logo.png'
+      <img
+        src='images/logo-black.png'
         alt='El Cielo Hawaii Logo'
         className='logo'
       />
-      <p>346 Lewers Street, Ground Floor, Honolulu, HI 96815</p>
-      <p>5:00 PM - 11:00 PM</p>
-      <p>
-        <span>(808)-772-4533</span>
-        <a href="mailto:info@elcielo-hawaii.com">info@elcielo-hawaii.com</a>
-      </p>
-      <p className='copyright'>© 2024 El Cielo Hawaii. All rights reserved.</p>
-      <p className='credit'>Made with 🖤 by Jaytee</p>
+      <div className='address'>
+        <span>346 Lewers Street, </span>
+        <span>Ground Floor, </span>
+        <span>Honolulu, HI 96815</span>
+      </div>
+      <div className='hours'>5:00 PM - 11:00 PM</div>
+      <div className='contact'>
+        <span>(808) 772-4533</span>
+        <a href='mailto:info@elcielo-hawaii.com'>
+          <span>info@elcielo-hawaii.com</span>
+        </a>
+      </div>
+      <div>
+        <div className='copyright'>
+          <span>© {currentYear} El Cielo Hawaii. </span>
+          <span>All rights reserved.</span>
+        </div>
+        <div className='credit'>
+          <span>Made with 🖤 by Jaytee</span>
+        </div>
+      </div>
     </footer>
   );
 }
