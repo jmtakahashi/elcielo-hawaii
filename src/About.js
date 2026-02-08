@@ -2,10 +2,16 @@ import React from 'react'
 
 export default function About() {
   return (
-    <section className='about'>
-      <section>
-        <h2>Masa</h2>
-        <div>
+    <div id='about' className='about'>
+      <section className='masa'>
+        <div className='heading'>
+          <h2>Masa</h2>
+          <img
+            src='/images/masa-gushiken-el-cielo-2000px.jpg'
+            alt='Masa Arnaldo Gushiken'
+          />
+        </div>
+        <div className='content'>
           <p>
             Masa Arnaldo Gushiken spent the better part of his youth growing up
             in Argentina and after years learning Italian and French cuisines
@@ -28,13 +34,59 @@ export default function About() {
       </section>
 
       <section className='our-story'>
-        <h2>Our Story</h2>
-        <p></p>
+        <div className='heading'>
+          <h2>Our Story</h2>
+          <img
+            src='/images/el-cielo-concept-2000px.jpg'
+            alt='El Cielo Concept'
+          />
+        </div>
+        <div className='content'>
+          <p>
+            El Cielo began with a journey that started long before the kitchen.
+          </p>
+          <p>
+            The chef was born in Argentina and moved to Japan at the age of
+            twelve - an early experience of crossing cultures, languages, and
+            ways of life. That transition shaped a deep sensitivity to
+            discipline, adaptation, and respect for place.
+          </p>
+          <p>
+            Culinary training later took the chef to Spain and Los Angeles,
+            environments defined by creativity, openness, and constant cultural
+            exchange. These experiences expanded perspective, instinct, and
+            possibility.
+          </p>
+          <p>
+            Seeking depth and refinement, the journey returned to Japan, where
+            technique, precision, and respect for ingredients are treated not as
+            skills, but as daily-practiced values. It was in Hawaii that these
+            experiences finally came together.
+          </p>
+          <p>
+            Hawaii is shaped by movement - of people, cultures, and shared
+            histories. Here, cooking is not about importing ideas or narratives,
+            but about listening: to the land, the ocean, and the community that
+            sustains them.
+          </p>
+          <p>
+            At El Cielo, our menu is an honest response to this journey - not
+            fusion for novelty’s sake, but food grounded in where we are,
+            informed by where we have been, and expressed without the need for
+            explanation.
+          </p>
+        </div>
       </section>
 
       <section className='philosophy'>
-        <h2>Philosophy</h2>
-        <div>
+        <div className='heading'>
+          <h2>Philosophy</h2>
+          <img
+            src='/images/el-cielo-philosophy-57-2000px.jpg'
+            alt='El Cielo Concept'
+          />
+        </div>
+        <div className='content'>
           <p>
             Our cooking reflects multiple influences - the openness of
             Argentina, the discipline refined in Japan, and the creativity
@@ -56,9 +108,11 @@ export default function About() {
       </section>
 
       <section className='community'>
-        <h2>Community</h2>
-        <span className='about-divider'></span>
-        <div>
+        <div className='heading'>
+          <h2>Community</h2>
+          <span className='about-divider'></span>
+        </div>
+        <div className='content'>
           <p>
             El Cielo exists because of the people who surround us - our team,
             our farmers, fishermen, producers, and the guests who return to our
@@ -74,9 +128,11 @@ export default function About() {
       </section>
 
       <section className='looking-forward'>
-        <h2>Looking Forward</h2>
-        <span className='about-divider'></span>
-        <div>
+        <div className='heading'>
+          <h2>Looking Forward</h2>
+          <span className='about-divider'></span>
+        </div>
+        <div className='content'>
           <p>
             El Cielo is not defined by a single origin, but by the path that led
             here.
@@ -88,6 +144,6 @@ export default function About() {
           </p>
         </div>
       </section>
-    </section>
+    </div>
   );
 }

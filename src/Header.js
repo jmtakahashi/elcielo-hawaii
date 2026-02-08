@@ -1,17 +1,19 @@
 import React from 'react'
-import { NavLink } from 'react-router';
+import { Link, NavLink } from 'react-router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faInstagram, faYelp, faGoogle } from '@fortawesome/free-brands-svg-icons';
 
 export default function Header() {
   return (
     <header className='header'>
-      <h1 hidden>El Cielo Hawaii</h1>
-      <img
-        src='images/logo-black.png'
-        alt='El Cielo Hawaii Logo'
-        className='logo'
-      />
+      <Link to='/'>
+        <h1 hidden>El Cielo Hawaii</h1>
+        <img
+          src='images/logo-black.png'
+          alt='El Cielo Hawaii Logo'
+          className='logo'
+        />
+      </Link>
 
       <nav className='nav desktop'>
         <NavLink
