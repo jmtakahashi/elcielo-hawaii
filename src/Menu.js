@@ -1,13 +1,20 @@
 import React from 'react'
 
 export default function Menu() {
-  return (
-    <div id='menu' className='menu'>
-      <section className='menu-content'>
-        <h2>Menu</h2>
-        <p>View english menu</p>
-        <p>View japanese menu</p>
+  const openPDF = (menu) => {
+    window.open(`/menu/${menu}.pdf`, '_blank'); // Opens in a new tab
+  };
 
+  return (
+    <div id='menu' className='container'>
+      <section className='menu'>
+        <h2>Menu</h2>
+
+        <div className='menu-links'>
+          <button href="/ENGLISH.pdf" onClick={() => openPDF('ENGLISH') }>View english menu</button>
+          <button href="/JAPANESE.pdf" onClick={() => openPDF('JAPANESE') }>View japanese menu</button>
+        </div>
+          
         <div className='menu-images'>
           <img src='images/el-cielo-menu-20-2000px.jpg' alt='Menu Item 1' />
           <img src='images/el-cielo-menu-28-2000px.jpg' alt='Menu Item 2' />

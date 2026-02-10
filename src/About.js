@@ -2,38 +2,8 @@ import React from 'react'
 
 export default function About() {
   return (
-    <div id='about' className='about'>
-      <section className='masa'>
-        <div className='heading'>
-          <h2>Masa</h2>
-          <img
-            src='/images/masa-gushiken-el-cielo-2000px.jpg'
-            alt='Masa Arnaldo Gushiken'
-          />
-        </div>
-        <div className='content'>
-          <p>
-            Masa Arnaldo Gushiken spent the better part of his youth growing up
-            in Argentina and after years learning Italian and French cuisines
-            kitchens in Tokyo, went on a life-changing trip exploring the foods
-            of Spain. There he worked in Barcelona, Galicia and San Sebastian in
-            Spain, where the language and simpler preparations took him back to
-            the world of his youth.
-          </p>
-          <p>
-            At its heart, El Cielo is Spain through Gushiken's lens. This
-            diverse menu includes classic dishes such as paella and croquetas de
-            jamon as well as more niche recipes like tripe stew (callos) as well
-            as boquerones and guindilla skewered around an olive. Tucked subtly
-            in between are nods to Argentina, contemporary Japan and Spain. The
-            totality of his training coalesces into his premier restaurant El
-            Cielo, an elegantly renovated midcentury walk-up in Waikiki, which
-            won editor's pick as the Hale Aina Awards' Best New Restaurant 2024.
-          </p>
-        </div>
-      </section>
-
-      <section className='our-story'>
+    <div id='about' className='container'>
+      <section className='our-story twoCol'>
         <div className='heading'>
           <h2>Our Story</h2>
           <img
@@ -78,7 +48,37 @@ export default function About() {
         </div>
       </section>
 
-      <section className='philosophy'>
+      <section className='masa twoCol'>
+        <div className='heading'>
+          <h2>Masa</h2>
+          <img
+            src='/images/masa-gushiken-el-cielo-2000px.jpg'
+            alt='Masa Arnaldo Gushiken'
+          />
+        </div>
+        <div className='content'>
+          <p>
+            Masa Arnaldo Gushiken spent the better part of his youth growing up
+            in Argentina and after years learning Italian and French cuisines
+            kitchens in Tokyo, went on a life-changing trip exploring the foods
+            of Spain. There he worked in Barcelona, Galicia and San Sebastian in
+            Spain, where the language and simpler preparations took him back to
+            the world of his youth.
+          </p>
+          <p>
+            At its heart, El Cielo is Spain through Gushiken's lens. This
+            diverse menu includes classic dishes such as paella and croquetas de
+            jamon as well as more niche recipes like tripe stew (callos) as well
+            as boquerones and guindilla skewered around an olive. Tucked subtly
+            in between are nods to Argentina, contemporary Japan and Spain. The
+            totality of his training coalesces into his premier restaurant El
+            Cielo, an elegantly renovated midcentury walk-up in Waikiki, which
+            won editor's pick as the Hale Aina Awards' Best New Restaurant 2024.
+          </p>
+        </div>
+      </section>
+
+      <section className='philosophy twoCol'>
         <div className='heading'>
           <h2>Philosophy</h2>
           <img
@@ -110,8 +110,8 @@ export default function About() {
       <section className='community'>
         <div className='heading'>
           <h2>Community</h2>
-          <span className='about-divider'></span>
         </div>
+        <span className='about-divider'></span>
         <div className='content'>
           <p>
             El Cielo exists because of the people who surround us - our team,
@@ -130,8 +130,8 @@ export default function About() {
       <section className='looking-forward'>
         <div className='heading'>
           <h2>Looking Forward</h2>
-          <span className='about-divider'></span>
         </div>
+        <span className='about-divider'></span>
         <div className='content'>
           <p>
             El Cielo is not defined by a single origin, but by the path that led

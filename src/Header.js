@@ -1,11 +1,37 @@
-import React from 'react'
+import React, { useRef, useEffect } from 'react'
 import { Link, NavLink } from 'react-router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faInstagram, faYelp, faGoogle } from '@fortawesome/free-brands-svg-icons';
 
 export default function Header() {
+  const headerRef = useRef(null);
+
+  useEffect(() => {
+    function updateHeaderHeight() {
+      if (headerRef.current) {
+        const height = headerRef.current.getBoundingClientRect().height;
+        document.documentElement.style.setProperty(
+          '--header-height',
+          `${height}px`,
+        );
+      }
+    }
+
+    // Run after fonts/images load or window resizes
+    window.addEventListener('load', updateHeaderHeight);
+    window.addEventListener('resize', updateHeaderHeight);
+
+    // Initial call (after render)
+    updateHeaderHeight();
+
+    return () => {
+      window.removeEventListener("load", updateHeaderHeight);
+      window.removeEventListener("resize", updateHeaderHeight);
+    };
+  }, []);
+
   return (
-    <header className='header'>
+    <header ref={headerRef} className='header'>
       <Link to='/'>
         <h1 hidden>El Cielo Hawaii</h1>
         <img
