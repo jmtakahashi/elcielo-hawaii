@@ -1,13 +1,12 @@
 import React, { useRef, useEffect, useState } from 'react'
-import { Link, NavLink } from 'react-router';
+import { Link, NavLink, useLocation } from 'react-router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faInstagram, faYelp, faGoogle } from '@fortawesome/free-brands-svg-icons';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const headerRef = useRef(null);
-
-  const handleLinkClick = () => setMobileMenuOpen(!mobileMenuOpen);
+  const location = useLocation();
 
   useEffect(() => {
     function updateHeaderHeight() {
@@ -28,10 +27,29 @@ export default function Header() {
     updateHeaderHeight();
 
     return () => {
-      window.removeEventListener("load", updateHeaderHeight);
-      window.removeEventListener("resize", updateHeaderHeight);
+      window.removeEventListener('load', updateHeaderHeight);
+      window.removeEventListener('resize', updateHeaderHeight);
     };
   }, []);
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [location.pathname]);
+
+  // 🔒 Lock body scroll when open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    // Cleanup safety
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
 
   return (
     <header ref={headerRef} className='header'>
@@ -116,14 +134,16 @@ export default function Header() {
         <span></span>
       </button>
 
-      <div className='mobileMenu'>
+      <div
+        className={`mobileMenu ${mobileMenuOpen ? 'open' : ''}`}
+        onClick={() => setMobileMenuOpen(false)}
+      >
         <nav className='nav'>
           <NavLink
             to='/'
             className={({ isActive, isPending }) =>
               isPending ? 'pending' : isActive ? 'active' : ''
             }
-            onClick={handleLinkClick}
           >
             Home
           </NavLink>
@@ -132,7 +152,6 @@ export default function Header() {
             className={({ isActive, isPending }) =>
               isPending ? 'pending' : isActive ? 'active' : ''
             }
-            onClick={handleLinkClick}
           >
             About
           </NavLink>
@@ -141,7 +160,6 @@ export default function Header() {
             className={({ isActive, isPending }) =>
               isPending ? 'pending' : isActive ? 'active' : ''
             }
-            onClick={handleLinkClick}
           >
             Menu
           </NavLink>
@@ -149,7 +167,6 @@ export default function Header() {
             href='https://www.opentable.com/booking/restref/availability?lang=en-US&correlationId=49e3accf-db76-4750-b873-65114256b1d0&restRef=1345438&otSource=Restaurant%20website'
             target='_blank'
             rel='noopener noreferrer'
-            onClick={handleLinkClick}
           >
             Reservations
           </a>
@@ -160,7 +177,6 @@ export default function Header() {
             href='https://www.facebook.com/people/El-Cielo-by-Masa-Gushiken/61557016725011/#'
             target='_blank'
             rel='noopener noreferrer'
-            onClick={handleLinkClick}
           >
             <FontAwesomeIcon icon={faFacebook} />
           </a>
@@ -168,7 +184,6 @@ export default function Header() {
             href='https://www.instagram.com/elcielo_hawaii'
             target='_blank'
             rel='noopener noreferrer'
-            onClick={handleLinkClick}
           >
             <FontAwesomeIcon icon={faInstagram} />
           </a>
@@ -176,7 +191,6 @@ export default function Header() {
             href='https://www.yelp.com/biz/el-cielo-by-chef-masa-honolulu-4'
             target='_blank'
             rel='noopener noreferrer'
-            onClick={handleLinkClick}
           >
             <FontAwesomeIcon icon={faYelp} />
           </a>
@@ -184,7 +198,6 @@ export default function Header() {
             href='https://www.google.com/search?q=el+cielo+by+chef+masa+reviews&oq=El+Cielo+by+chef+Masa&gs_lcrp=EgZjaHJvbWUqBwgBEAAYgAQyBwgAEAAYgAQyBwgBEAAYgAQyCAgCEAAYFhgeMggIAxAAGBYYHjIICAQQABgWGB4yCAgFEAAYFhgeMggIBhAAGBYYHjIICAcQABgWGB7SAQk0ODc2ajBqMTWoAgCwAgA&sourceid=chrome&ie=UTF-8#ip=1&lrd=0x7c006d9006881d5f:0x2777fc6aa28cc28a,1,,,,'
             target='_blank'
             rel='noopener noreferrer'
-            onClick={handleLinkClick}
           >
             <FontAwesomeIcon icon={faGoogle} />
           </a>
