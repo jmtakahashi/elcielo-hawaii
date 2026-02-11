@@ -120,22 +120,53 @@ body:has(#home) .header {
 }
 
 .mobileMenu {
-  display: none;
+  position: fixed;
+  top: 0; /* fallback 0 if not set */
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 32px;
+  background-color: rgba(255, 255, 255, 0.9);
+  opacity: 0;
+  z-index: 0;
+  transition: all 0.3s ease-out;
 }
 
-/* mobile menu styles */
+@media screen and (min-width: 768px) {
+  .mobileMenu {
+    display: none;
+  }
+}
+
+.mobileMenuToggle.open + .mobileMenu {
+  opacity: 1;
+  z-index: 99;
+}
+
+.mobileMenu nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  
+}
+
+/* mobile menu toggle styles */
 .mobileMenuToggle {
   position: relative;
+  background-color: transparent;
+  border: none;
   display: flex;
   align-items: center;
   width: 28px;
   height: 28px;
   cursor: pointer;
-}
-
-.mobileMenuToggle > input {
-  position: absolute;
-  visibility: hidden;
+  z-index: 100;
 }
 
 .mobileMenuToggle > span {
@@ -170,14 +201,14 @@ body:has(#home) .header {
 }
 
 /* these need to be when input box is checked */
-.mobileMenuToggle > input:checked + span {
+.mobileMenuToggle.open > span {
     background-color: transparent;
 }
-.mobileMenuToggle > input:checked + span:before {
+.mobileMenuToggle.open > span:before {
   transform: rotate(45deg) translate(6px, 6px);
 }
 
-.mobileMenuToggle > input:checked + span:after {
+.mobileMenuToggle.open > span:after {
   transform: rotate(-45deg) translate(6px, -5px);
 }
 
