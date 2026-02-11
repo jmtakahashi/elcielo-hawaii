@@ -527,6 +527,7 @@ body:not(:has(#home)) main {
 .menu-links button {
   font-family: var(--sans-serif);
   font-size: 1.25rem;
+  letter-spacing: .2em;
   color: var(--accent);
   background: none;
   border: none;
