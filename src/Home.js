@@ -37,7 +37,6 @@ export default function Home() {
       </section>
 
       <section className='definition'>
-        <span className='story-divider'></span>
         <img
           src='images/el-cielo-expression-2000px.jpg'
           alt='Definition of El Cielo'

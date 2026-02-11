@@ -310,7 +310,7 @@ body:not(:has(#home)) main {
   align-items: center;
   gap: 3rem;
   color: var(--accent);
-  padding: 64px 24px 128px;
+  padding: 64px 24px 0;
 }
 
 .story > p {
@@ -323,10 +323,6 @@ body:not(:has(#home)) main {
 
 .story > p > span {
   white-space: nowrap;
-}
-
-.story > p:last-of-type {
-  padding-bottom: 3rem;
 }
 
 .story > p::after {
@@ -345,13 +341,14 @@ body:not(:has(#home)) main {
   justify-content: center;
   align-items: center;
   padding: 128px 0 256px;
+  overflow-x: hidden;
 }
 
 .definition > p {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 32px;
+  padding: 24px;
   font-family: var(--serif);
   font-size: 1.5rem;
   line-height: 1.2em;
@@ -364,7 +361,7 @@ body:not(:has(#home)) main {
   line-height: 1.2em;
 }
 
-.definition > p::before {
+.definition::before {
   content: "";
   display: block;
   background: black;
@@ -380,31 +377,43 @@ body:not(:has(#home)) main {
 }
 
 .definition img.float-right {
-  right: 0;
+  right: -120px;
   top: 0;
-  padding-top: 64px;
   z-index: -1;
 }
 .definition img.float-left {
-  left: 0;
+  left: -50px;
   bottom: 0;
-  padding-bottom: 220px;
+  padding-bottom: 90px;
   z-index: -1;
 }
 
 @media screen and (min-width: 768px) {
   .story {
-    padding: 128px 24px;
+    padding: 128px 24px 0;
   }
   .story > p {
     font-size: 3.25rem;
   }
   .definition > p {
     font-size: 2.25rem;
+    padding: 32px;
     gap: .5em;
   }
   .definition .large {
     font-size: 1.75em;
+  }
+    .definition img.float-right {
+    right: 0;
+    top: 0;
+    padding-top: 64px;
+    z-index: -1;
+  }
+  .definition img.float-left {
+    left: 0;
+    bottom: 0;
+    padding-bottom: 220px;
+    z-index: -1;
   }
 }
 
