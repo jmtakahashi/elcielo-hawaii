@@ -81,6 +81,12 @@ body {
   z-index: 100;
 }
 
+@media screen and (max-width: 767px) {
+  .header {
+    padding: 24px;
+  }
+}
+
 body:has(#home) .header {
   background-color: transparent;
 }
