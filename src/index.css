@@ -125,8 +125,9 @@ body:has(#home) .header {
 }
 
 .socials {
+  display: flex;
   align-items: center;
-  gap: .75rem;
+  gap: 1rem;
 }
 
 .socials a {
