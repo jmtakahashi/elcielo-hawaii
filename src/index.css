@@ -119,11 +119,75 @@ body:has(#home) .header {
   }
 }
 
+.mobileMenu {
+  display: none;
+}
+
+/* mobile menu styles */
+.mobileMenuToggle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+}
+
+.mobileMenuToggle > input {
+  position: absolute;
+  visibility: hidden;
+}
+
+.mobileMenuToggle > span {
+  position: relative;
+  display: block;
+} 
+
+.mobileMenuToggle > span,
+.mobileMenuToggle > span:after, 
+.mobileMenuToggle > span:before {
+    width: 100%;
+    height: 2px;
+    background-color: var(--accent);
+    transition: all 0.3s;
+    backface-visibility: hidden;
+    border-radius: 2px;
+}
+
+.mobileMenuToggle > span:after,
+.mobileMenuToggle > span:before {
+    content: "";
+    position: absolute;
+    left: 0;
+}
+
+.mobileMenuToggle > span:before {
+  top: -8px;
+}
+  
+.mobileMenuToggle > span:after {
+  top: 8px;
+}
+
+/* these need to be when input box is checked */
+.mobileMenuToggle > input:checked + span {
+    background-color: transparent;
+}
+.mobileMenuToggle > input:checked + span:before {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.mobileMenuToggle > input:checked + span:after {
+  transform: rotate(-45deg) translate(6px, -5px);
+}
+
 @media screen and (min-width: 768px) {
-  .mobileMenu {
+  .mobileMenuToggle {
     display: none;
   }
 }
+
+/* end mobile menu styles */
 
 body:not(:has(#home)) main {
   margin-top: var(--header-height, 0px); /* fallback 0 if not set */
@@ -170,6 +234,7 @@ body:not(:has(#home)) main {
 }
 
 .story {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -192,29 +257,35 @@ body:not(:has(#home)) main {
   height: 100px;
 }
 
+
+.story span:nth-last-child(2) {
+  padding-bottom: 3rem;
+}
+
 .story .story-divider:last-child {
   position: absolute;
+  bottom: 0;
 }
 
 .definition {
+  position: relative;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  gap: 3rem;
   font-family: var(--serif);
   color: var(--accent);
   padding-top: 128px;
-  padding-bottom: 128px;
+  padding-bottom: 256px;
   text-align: center;
 }
 
 .definition > p {
-  font-size: 2.25rem;
+  padding: 32px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+  font-size: 2.25rem;
 }
 
 .definition > p > span {
@@ -226,7 +297,26 @@ body:not(:has(#home)) main {
 }
 
 .definition .story-divider {
-  position: absolute
+  position: absolute;
+  top: 0;
+}
+
+.definition img {
+  position: absolute;
+  width: 300px;
+}
+
+.definition img.float-right {
+  right: 0;
+  top: 0;
+  padding-top: 64px;
+  z-index: -1;
+}
+.definition img.float-left {
+  left: 0;
+  bottom: 0;
+  padding-bottom: 220px;
+  z-index: -1;
 }
 
 #about section {
@@ -327,12 +417,12 @@ body:not(:has(#home)) main {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* overflow-x: hidden; */
+  flex-wrap: wrap;
 }
 
 .menu-images img {
   flex: 1 1 0;
-  min-width: 200px;
+  min-width: 250px;
 }
 
 .footer {

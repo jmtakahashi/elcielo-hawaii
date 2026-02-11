@@ -34,6 +34,11 @@ export default function Home() {
 
       <section className='definition'>
         <span className='story-divider'></span>
+        <img
+          src='images/el-cielo-expression-2000px.jpg'
+          alt='Definition of El Cielo'
+          className='home-image float-right'
+        />
         <p>
           <span>El Cielo is</span>
           <span className='large'>a quiet expression of</span>
@@ -42,6 +47,11 @@ export default function Home() {
           <span>becomes unnecessary</span>
           <span>at the table.</span>
         </p>
+        <img
+          src='images/el-cielo-expression-2-2000px.jpg'
+          alt='Definition of El Cielo'
+          className='home-image float-left'
+        />
       </section>
     </div>
   );

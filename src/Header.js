@@ -106,6 +106,11 @@ export default function Header() {
         </a>
       </div>
 
+      <label htmlFor='menu-toggle' className='mobileMenuToggle'>
+        <input type='checkbox' id='menu-toggle' />
+        <span></span>
+      </label>
+
       <div className='mobileMenu'>
         <nav className='nav'>
           <NavLink
