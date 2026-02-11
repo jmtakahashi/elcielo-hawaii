@@ -22,14 +22,18 @@ export default function Home() {
       </section>
 
       <section className='story'>
-        <span>Born in argentina</span>
-        <span className='story-divider'></span>
-        <span>Shaped in Japan</span>
-        <span className='story-divider'></span>
-        <span>Refined in Spain</span>
-        <span className='story-divider'></span>
-        <span>Perfected in Los Angeles</span>
-        <span className='story-divider'></span>
+        <p>
+          <span>Born in</span> argentina
+        </p>
+        <p>
+          <span>Shaped in</span> Japan
+        </p>
+        <p>
+          <span>Refined in</span> Spain
+        </p>
+        <p>
+          <span>Perfected in</span> Los Angeles
+        </p>
       </section>
 
       <section className='definition'>

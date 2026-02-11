@@ -111,7 +111,6 @@ export default function About() {
         <div className='heading'>
           <h2>Community</h2>
         </div>
-        <span className='about-divider'></span>
         <div className='content'>
           <p>
             El Cielo exists because of the people who surround us - our team,
@@ -131,7 +130,6 @@ export default function About() {
         <div className='heading'>
           <h2>Looking Forward</h2>
         </div>
-        <span className='about-divider'></span>
         <div className='content'>
           <p>
             El Cielo is not defined by a single origin, but by the path that led
