@@ -10,32 +10,25 @@ export default function Menu({ headerEl }) {
   const menuSectionRef = useRef();
   const { headerHeight } = useHeader();
 
-  // useEffect(() => {
-  //   // Only set up the observer if we have both the story section and header ref
-  //   if (menuSectionRef && headerEl) {
-  //     // per react suggestion, safe the ref to a variable for use in the observer
-  //     const menuSection = menuSectionRef.current;
+  useEffect(() => {
+    const callback = ([entry]) => {
+      console.log(entry.target);
+      entry.target.classList.add('revealed');
+    };
 
-  //     const callback = ([entry]) => {
-  //       if (!entry.isIntersecting) {
-  //         headerEl.classList.add('scrolledPastHero');
-  //       } else {
-  //         headerEl.classList.remove('scrolledPastHero');
-  //       }
-  //     };
+    const options = {
+      root: null,
+      threshold: .5,
+    };
 
-  //     const options = {
-  //       root: null,
-  //       threshold: .1,
-  //       rootMargin: `-${headerHeight}px 0px 0px 0px`,
-  //     };
+    const observer = new IntersectionObserver(callback, options);
 
-  //     const observer = new IntersectionObserver(callback, options);
-  //     observer.observe(menuSection); // give it the element to observe
+    for (let el of document.getElementsByClassName('reveal')) {
+      observer.observe(el); // give it the element to observe
+    }
 
-  //     return () => observer.disconnect(); // cleanup on unmount
-  //   }
-  // }, [headerHeight, headerEl]);
+    return () => observer.disconnect; // cleanup on unmount
+  }, []);
 
   useEffect(() => {
     const observedSection = menuSectionRef.current;
@@ -66,9 +59,9 @@ export default function Menu({ headerEl }) {
   return (
     <div id='menu'>
       <section ref={menuSectionRef} className='menu'>
-        <h2>Menu</h2>
+        <h2 className='reveal'>Menu</h2>
 
-        <div className='menu-links'>
+        <div className='menu-links reveal'>
           <button href='/ENGLISH.pdf' onClick={() => openPDF('ENGLISH')}>
             View english menu
           </button>
@@ -78,11 +71,11 @@ export default function Menu({ headerEl }) {
         </div>
 
         <div className='menu-images'>
-          <img src={menuImageOne} alt='Menu Item 1' />
-          <img src={menuImageTwo} alt='Menu Item 2' />
-          <img src={menuImageThree} alt='Menu Item 3' />
-          <img src={menuImageFour} alt='Menu Item 4' />
-          <img src={menuImageFive} alt='Menu Item 5' />
+          <img className='reveal' src={menuImageOne} alt='Menu Item 1' />
+          <img className='reveal' src={menuImageTwo} alt='Menu Item 2' />
+          <img className='reveal' src={menuImageThree} alt='Menu Item 3' />
+          <img className='reveal' src={menuImageFour} alt='Menu Item 4' />
+          <img className='reveal' src={menuImageFive} alt='Menu Item 5' />
         </div>
       </section>
     </div>

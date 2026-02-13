@@ -7,32 +7,25 @@ export default function Home({ headerEl }) {
   const storySectionRef = useRef();
   const { headerHeight } = useHeader();
 
-  // useEffect(() => {
-  //   // Only set up the observer if we have both the story section and header ref
-  //   if (heroSectionRef && headerEl) {
-  //     // per react suggestion, safe the ref to a variable for use in the observer
-  //     const heroSection = heroSectionRef.current;
+  useEffect(() => {
+    const callback = ([entry]) => {
+      console.log(entry.target)
+      entry.target.classList.add('revealed');
+    };
 
-  //     const callback = ([entry]) => {
-  //       if (!entry.isIntersecting) {
-  //         headerEl.classList.add('scrolledPastHero');
-  //       } else {
-  //         headerEl.classList.remove('scrolledPastHero');
-  //       }
-  //     };
+    const options = {
+      root: null,
+      threshold: .5,
+    };
 
-  //     const options = {
-  //       root: null,
-  //       threshold: 0,
-  //       rootMargin: `-${headerHeight}px 0px 0px 0px`,
-  //     };
+    const observer = new IntersectionObserver(callback, options);
 
-  //     const observer = new IntersectionObserver(callback, options);
-  //     observer.observe(heroSection); // give it the element to observe
+    for (let el of document.getElementsByClassName('reveal')) {
+      observer.observe(el); // give it the element to observe
+    }
 
-  //     return () => observer.disconnect(); // cleanup on unmount
-  //   }
-  // }, [headerHeight, headerEl]);
+    return () => observer.disconnect; // cleanup on unmount
+  }, []);
 
   useEffect(() => {
     const observedSection = storySectionRef.current;
@@ -77,16 +70,16 @@ export default function Home({ headerEl }) {
       </section>
 
       <section ref={storySectionRef} className='story'>
-        <p>
+        <p className='reveal'>
           <span>Born in</span> argentina
         </p>
-        <p>
+        <p className='reveal'>
           <span>Shaped in</span> Japan
         </p>
-        <p>
+        <p className='reveal'>
           <span>Refined in</span> Spain
         </p>
-        <p>
+        <p className='reveal'>
           <span>Perfected in</span> Los Angeles
         </p>
       </section>
@@ -95,20 +88,20 @@ export default function Home({ headerEl }) {
         <img
           src={expressionImageOne}
           alt='Definition of El Cielo'
-          className='home-image float-right'
+          className='home-image float-right reveal'
         />
         <p>
-          <span>El Cielo is</span>
-          <span className='large'>a quiet expression of</span>
-          <span className='large'>movement, memory and place</span>
-          <span>where language</span>
-          <span>becomes unnecessary</span>
-          <span>at the table.</span>
+          <span className='reveal'>El Cielo is</span>
+          <span className='large reveal'>a quiet expression of</span>
+          <span className='large reveal'>movement, memory and place</span>
+          <span className='reveal'>where language</span>
+          <span className='reveal'>becomes unnecessary</span>
+          <span className='reveal'>at the table.</span>
         </p>
         <img
           src={expressionImageTwo}
           alt='Definition of El Cielo'
-          className='home-image float-left'
+          className='home-image float-left reveal'
         />
       </section>
     </div>

@@ -8,33 +8,25 @@ export default function About({ headerEl}) {
   const aboutSectionRef = useRef();
   const { headerHeight } = useHeader();
 
-  // useEffect(() => {
-  //   // Only set up the observer if we have both the story section and header ref
-  //   if (aboutSectionRef && headerEl) {
-  //     // per react suggestion, safe the ref to a variable for use in the observer
-  //     const aboutSection = aboutSectionRef.current;
+  useEffect(() => {
+    const callback = ([entry]) => {
+      console.log(entry.target);
+      entry.target.classList.add('revealed');
+    };
 
-  //     const callback = ([entry]) => {
-  //       console.log(entry)
-  //       if (!entry.isIntersecting) {
-  //         headerEl.classList.add('scrolledPastHero');
-  //       } else {
-  //         headerEl.classList.remove('scrolledPastHero');
-  //       }
-  //     };
+    const options = {
+      root: null,
+      threshold: .5,
+    };
 
-  //     const options = {
-  //       root: null,
-  //       threshold: 0.9,
-  //       rootMargin: `-${headerHeight}px 0px 0px 0px`,
-  //     };
+    const observer = new IntersectionObserver(callback, options);
 
-  //     const observer = new IntersectionObserver(callback, options);
-  //     observer.observe(aboutSection); // give it the element to observe
+    for (let el of document.getElementsByClassName('reveal')) {
+      observer.observe(el); // give it the element to observe
+    }
 
-  //     return () => observer.disconnect(); // cleanup on unmount
-  //   }
-  // }, [headerHeight, headerEl]);
+    return () => observer.disconnect; // cleanup on unmount
+  }, []);
 
   useEffect(() => {
     const observedSection = aboutSectionRef.current;
@@ -62,13 +54,10 @@ export default function About({ headerEl}) {
     <div id='about'>
       <section ref={aboutSectionRef} className='our-story twoCol'>
         <div className='heading'>
-          <h2>Our Story</h2>
-          <img
-            src={ourStoryImage}
-            alt='El Cielo Concept'
-          />
+          <h2 className='reveal'>Our Story</h2>
+          <img className='reveal' src={ourStoryImage} alt='El Cielo Concept' />
         </div>
-        <div className='content'>
+        <div className='content reveal'>
           <p>
             El Cielo began with a journey that started long before the kitchen.
           </p>
@@ -107,13 +96,10 @@ export default function About({ headerEl}) {
 
       <section className='masa twoCol'>
         <div className='heading'>
-          <h2>Masa</h2>
-          <img
-            src={masaImage}
-            alt='Masa Arnaldo Gushiken'
-          />
+          <h2 className='reveal'>Masa</h2>
+          <img className='reveal' src={masaImage} alt='Masa Arnaldo Gushiken' />
         </div>
-        <div className='content'>
+        <div className='content reveal'>
           <p>
             Masa Arnaldo Gushiken spent the better part of his youth growing up
             in Argentina and after years learning Italian and French cuisines
@@ -137,13 +123,14 @@ export default function About({ headerEl}) {
 
       <section className='philosophy twoCol'>
         <div className='heading'>
-          <h2>Philosophy</h2>
+          <h2 className='reveal'>Philosophy</h2>
           <img
+            className='reveal'
             src={philosophyImage}
             alt='El Cielo Philosophy'
           />
         </div>
-        <div className='content'>
+        <div className='content reveal'>
           <p>
             Our cooking reflects multiple influences - the openness of
             Argentina, the discipline refined in Japan, and the creativity
@@ -166,9 +153,9 @@ export default function About({ headerEl}) {
 
       <section className='community'>
         <div className='heading'>
-          <h2>Community</h2>
+          <h2 className='reveal'>Community</h2>
         </div>
-        <div className='content'>
+        <div className='content reveal'>
           <p>
             El Cielo exists because of the people who surround us - our team,
             our farmers, fishermen, producers, and the guests who return to our
@@ -185,9 +172,9 @@ export default function About({ headerEl}) {
 
       <section className='looking-forward'>
         <div className='heading'>
-          <h2>Looking Forward</h2>
+          <h2 className='reveal'>Looking Forward</h2>
         </div>
-        <div className='content'>
+        <div className='content reveal'>
           <p>
             El Cielo is not defined by a single origin, but by the path that led
             here.

@@ -613,3 +613,12 @@ body:not(:has(#home)) main {
   -moz-osx-font-smoothing: grayscale;
   margin-bottom: 0.65em;
 }
+
+.reveal {
+  opacity: 0;
+  transition: opacity 300ms ease-in;
+}
+
+.reveal.revealed {
+  opacity: 1;
+}
