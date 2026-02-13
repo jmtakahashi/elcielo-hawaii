@@ -1,13 +1,70 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react';
+import { useHeader } from './contexts/HeaderContext';
+import ourStoryImage from './assets/images/el-cielo-concept-2000px.jpg';
+import masaImage from './assets/images/masa-gushiken-el-cielo-2000px.jpg';
+import philosophyImage from './assets/images/el-cielo-philosophy-57-2000px.jpg';
 
-export default function About() {
+export default function About({ headerEl}) {
+  const aboutSectionRef = useRef();
+  const { headerHeight } = useHeader();
+
+  // useEffect(() => {
+  //   // Only set up the observer if we have both the story section and header ref
+  //   if (aboutSectionRef && headerEl) {
+  //     // per react suggestion, safe the ref to a variable for use in the observer
+  //     const aboutSection = aboutSectionRef.current;
+
+  //     const callback = ([entry]) => {
+  //       console.log(entry)
+  //       if (!entry.isIntersecting) {
+  //         headerEl.classList.add('scrolledPastHero');
+  //       } else {
+  //         headerEl.classList.remove('scrolledPastHero');
+  //       }
+  //     };
+
+  //     const options = {
+  //       root: null,
+  //       threshold: 0.9,
+  //       rootMargin: `-${headerHeight}px 0px 0px 0px`,
+  //     };
+
+  //     const observer = new IntersectionObserver(callback, options);
+  //     observer.observe(aboutSection); // give it the element to observe
+
+  //     return () => observer.disconnect(); // cleanup on unmount
+  //   }
+  // }, [headerHeight, headerEl]);
+
+  useEffect(() => {
+    const observedSection = aboutSectionRef.current;
+
+    const handleScroll = (e) => {
+      if (!observedSection || !headerEl) return;
+
+      const observedSectionTop = observedSection.getBoundingClientRect().top;
+
+      if (observedSectionTop < headerHeight) {
+        headerEl.classList.add('scrolledPastHero');
+      } else {
+        headerEl.classList.remove('scrolledPastHero');
+      }
+    };
+
+    document.addEventListener('scroll', handleScroll);
+
+    return () => {
+      document.removeEventListener('scroll', handleScroll);
+    };
+  }, [headerHeight, headerEl]);
+
   return (
-    <div id='about' className='container'>
-      <section className='our-story twoCol'>
+    <div id='about'>
+      <section ref={aboutSectionRef} className='our-story twoCol'>
         <div className='heading'>
           <h2>Our Story</h2>
           <img
-            src='/images/el-cielo-concept-2000px.jpg'
+            src={ourStoryImage}
             alt='El Cielo Concept'
           />
         </div>
@@ -52,7 +109,7 @@ export default function About() {
         <div className='heading'>
           <h2>Masa</h2>
           <img
-            src='/images/masa-gushiken-el-cielo-2000px.jpg'
+            src={masaImage}
             alt='Masa Arnaldo Gushiken'
           />
         </div>
@@ -82,8 +139,8 @@ export default function About() {
         <div className='heading'>
           <h2>Philosophy</h2>
           <img
-            src='/images/el-cielo-philosophy-57-2000px.jpg'
-            alt='El Cielo Concept'
+            src={philosophyImage}
+            alt='El Cielo Philosophy'
           />
         </div>
         <div className='content'>

@@ -1,8 +1,63 @@
-import React from 'react'
+import { useEffect, useRef } from 'react';
+import { useHeader } from './contexts/HeaderContext';
+import expressionImageOne from './assets/images/el-cielo-expression-2000px.jpg';
+import expressionImageTwo from './assets/images/el-cielo-expression-2-2000px.jpg';
 
-export default function Home() {
+export default function Home({ headerEl }) {
+  const storySectionRef = useRef();
+  const { headerHeight } = useHeader();
+
+  // useEffect(() => {
+  //   // Only set up the observer if we have both the story section and header ref
+  //   if (heroSectionRef && headerEl) {
+  //     // per react suggestion, safe the ref to a variable for use in the observer
+  //     const heroSection = heroSectionRef.current;
+
+  //     const callback = ([entry]) => {
+  //       if (!entry.isIntersecting) {
+  //         headerEl.classList.add('scrolledPastHero');
+  //       } else {
+  //         headerEl.classList.remove('scrolledPastHero');
+  //       }
+  //     };
+
+  //     const options = {
+  //       root: null,
+  //       threshold: 0,
+  //       rootMargin: `-${headerHeight}px 0px 0px 0px`,
+  //     };
+
+  //     const observer = new IntersectionObserver(callback, options);
+  //     observer.observe(heroSection); // give it the element to observe
+
+  //     return () => observer.disconnect(); // cleanup on unmount
+  //   }
+  // }, [headerHeight, headerEl]);
+
+  useEffect(() => {
+    const observedSection = storySectionRef.current;
+
+    const handleScroll = (e) => {
+      if (!observedSection || !headerEl) return;
+
+      const observedSectionTop = observedSection.getBoundingClientRect().top;
+
+      if (observedSectionTop < headerHeight) {
+        headerEl.classList.add('scrolledPastHero');
+      } else {
+        headerEl.classList.remove('scrolledPastHero');
+      }
+    };
+
+    document.addEventListener('scroll', handleScroll);
+
+    return () => {
+      document.removeEventListener('scroll', handleScroll);
+    };
+  }, [headerHeight, headerEl]);
+
   return (
-    <div id='home' className='container'>
+    <div id='home'>
       <section className='hero'>
         <div className='hero-background'></div>
         <div className='hero-content'>
@@ -21,7 +76,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className='story'>
+      <section ref={storySectionRef} className='story'>
         <p>
           <span>Born in</span> argentina
         </p>
@@ -38,7 +93,7 @@ export default function Home() {
 
       <section className='definition'>
         <img
-          src='images/el-cielo-expression-2000px.jpg'
+          src={expressionImageOne}
           alt='Definition of El Cielo'
           className='home-image float-right'
         />
@@ -51,7 +106,7 @@ export default function Home() {
           <span>at the table.</span>
         </p>
         <img
-          src='images/el-cielo-expression-2-2000px.jpg'
+          src={expressionImageTwo}
           alt='Definition of El Cielo'
           className='home-image float-left'
         />

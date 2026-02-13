@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import { HeaderProvider } from './contexts/HeaderContext';
 import { Routes, Route } from 'react-router';
 import Header from './Header';
 import Home from './Home';
@@ -6,26 +8,43 @@ import About from './About';
 import NotFound from './NotFound';
 import Footer from './Footer';
 
+function App() {
+  // state will hold the ref to the header element so we can use it in the intersection observer in Home.js
+  const [headerEl, setHeaderEl] = useState(null);
 
-function App() {  
   return (
     <div className='container'>
-      <Header />
-      <main className='main'>
-        <Routes>
-          <Route path='*' element={<NotFound />} />
-          <Route path='/' exact element={<Home />}>
-            Home
-          </Route>
-          <Route path='/menu' element={<Menu />}>
-            Menu
-          </Route>
-          <Route path='/about' element={<About />}>
-            About
-          </Route>
-        </Routes>
-      </main>
-      <Footer />
+      <HeaderProvider>
+        <Header setHeaderEl={setHeaderEl} />
+        <main className='main'>
+          <Routes>
+            <Route path='*' element={<NotFound />} />
+            <Route
+              path='/'
+              exact
+              element={<Home headerEl={headerEl} />}
+            >
+              Home
+            </Route>
+            <Route
+              path='/menu'
+              element={<Menu headerEl={headerEl} />}
+            >
+              Menu
+            </Route>
+            <Route
+              path='/about'
+              element={
+                <About headerEl={headerEl} />
+              }
+            >
+              About
+
+            </Route>
+          </Routes>
+        </main>
+        <Footer />
+      </HeaderProvider>
     </div>
   );
 }

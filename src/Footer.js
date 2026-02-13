@@ -1,4 +1,5 @@
 import React from 'react'
+import logo from './assets/images/logo-black.png';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -6,7 +7,7 @@ export default function Footer() {
   return (
     <footer className='footer'>
       <img
-        src='images/logo-black.png'
+        src={logo}
         alt='El Cielo Hawaii Logo'
         className='logo'
       />

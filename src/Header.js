@@ -1,36 +1,39 @@
 import React, { useRef, useEffect, useState } from 'react'
+import { useHeader } from './contexts/HeaderContext';
 import { Link, NavLink, useLocation } from 'react-router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faInstagram, faYelp, faGoogle } from '@fortawesome/free-brands-svg-icons';
+import logo from './assets/images/logo-black.png';
 
-export default function Header() {
+export default function Header({ setHeaderEl }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const headerRef = useRef(null);
+  const { setHeaderHeight } = useHeader();
   const location = useLocation();
 
   useEffect(() => {
-    function updateHeaderHeight() {
-      if (headerRef.current) {
-        const height = headerRef.current.getBoundingClientRect().height;
-        document.documentElement.style.setProperty(
-          '--header-height',
-          `${height}px`,
-        );
-      }
-    }
+    if (!headerRef.current) return;
 
-    // Run after fonts/images load or window resizes
-    window.addEventListener('load', updateHeaderHeight);
-    window.addEventListener('resize', updateHeaderHeight);
+    const resizeObserver = new ResizeObserver(([entry]) => {
+      const height = headerRef.current.getBoundingClientRect().height;
 
-    // Initial call (after render)
-    updateHeaderHeight();
+      // set CSS variable for use in css
+      document.documentElement.style.setProperty(
+        '--header-height',
+        `${height}px`,
+      );
 
-    return () => {
-      window.removeEventListener('load', updateHeaderHeight);
-      window.removeEventListener('resize', updateHeaderHeight);
-    };
-  }, []);
+      // set state for use in intersection observer
+      setHeaderHeight(height);
+
+      // set the header ref for use in intersection observer
+      setHeaderEl(headerRef.current);
+    });
+
+    resizeObserver.observe(headerRef.current);
+
+    return () => resizeObserver.disconnect();
+  }, [setHeaderHeight, setHeaderEl]);
 
   // Close mobile menu on route change
   useEffect(() => {
@@ -56,7 +59,7 @@ export default function Header() {
       <Link to='/'>
         <h1 hidden>El Cielo Hawaii</h1>
         <img
-          src='images/logo-black.png'
+          src={logo}
           alt='El Cielo Hawaii Logo'
           className='logo'
         />
@@ -138,6 +141,11 @@ export default function Header() {
         className={`mobileMenu ${mobileMenuOpen ? 'open' : ''}`}
         onClick={() => setMobileMenuOpen(false)}
       >
+        <img
+          src={logo}
+          alt='El Cielo Hawaii Logo'
+          className='logo'
+        />
         <nav className='nav'>
           <NavLink
             to='/'
