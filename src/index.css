@@ -616,7 +616,7 @@ body:not(:has(#home)) main {
 
 .reveal {
   opacity: 0;
-  transition: opacity 300ms ease-in;
+  transition: opacity 350ms ease;
 }
 
 .reveal.revealed {

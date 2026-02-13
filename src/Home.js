@@ -7,15 +7,19 @@ export default function Home({ headerEl }) {
   const storySectionRef = useRef();
   const { headerHeight } = useHeader();
 
+  // fade into view on scroll
   useEffect(() => {
-    const callback = ([entry]) => {
-      console.log(entry.target)
-      entry.target.classList.add('revealed');
+    const callback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.intersectionRatio > 0.1) {
+          entry.target.classList.add('revealed');
+        }
+      });
     };
 
     const options = {
       root: null,
-      threshold: .5,
+      threshold: 0.5,
     };
 
     const observer = new IntersectionObserver(callback, options);
@@ -27,6 +31,7 @@ export default function Home({ headerEl }) {
     return () => observer.disconnect; // cleanup on unmount
   }, []);
 
+  // header transparency on scroll
   useEffect(() => {
     const observedSection = storySectionRef.current;
 
