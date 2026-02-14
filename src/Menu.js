@@ -1,10 +1,14 @@
 import React, { useEffect, useRef } from 'react';
 import { useHeader } from './contexts/HeaderContext';
-import menuImageOne from './assets/images/el-cielo-menu-20-2000px.jpg';
-import menuImageTwo from './assets/images/el-cielo-menu-28-2000px.jpg';
-import menuImageThree from './assets/images/el-cielo-menu-42-2000px.jpg';
-import menuImageFour from './assets/images/el-cielo-menu-53-2000px.jpg';
-import menuImageFive from './assets/images/el-cielo-menu-25-2000px.jpg';
+import menuImageOne from './assets/images/el-cielo-menu-1-1024px.jpg';
+import menuImageTwo from './assets/images/el-cielo-menu-2-1024px.jpg';
+import menuImageThree from './assets/images/el-cielo-menu-3-1024px.jpg';
+import menuImageFour from './assets/images/el-cielo-menu-4-1024px.jpg';
+import menuImageFive from './assets/images/el-cielo-menu-5-1024px.jpg';
+import menuImageSix from './assets/images/el-cielo-menu-6-1024px.jpg';
+import menuImageSeven from './assets/images/el-cielo-menu-7-1024px.jpg';
+import menuImageEight from './assets/images/el-cielo-menu-8-1024px.jpg';
+import menuImageNine from './assets/images/el-cielo-menu-9-1024px.jpg';
 
 export default function Menu({ headerEl }) {
   const menuSectionRef = useRef();
@@ -78,11 +82,9 @@ export default function Menu({ headerEl }) {
 
           <p className='reveal'>
             Our menu centers on tradition, elegantly executed with attention to
-            detail. Tapas and pintxos highlight clean flavors and precise
+            detail.  Tapas and pintxos highlight clean flavors and precise
             technique, while signature paellas are prepared patiently, allowing
-            depth and balance to develop naturally. Ingredient quality and
-            seasonality guide each of our dishes, with thoughtful sourcing and
-            minimal intervention preserving authenticity. Desserts offer a quiet
+            depth and balance to develop naturally.  Desserts offer a quiet
             finish, completing the meal with clarity and balance.
           </p>
 
@@ -115,6 +117,10 @@ export default function Menu({ headerEl }) {
           <img className='reveal' src={menuImageThree} alt='Menu Item 3' />
           <img className='reveal' src={menuImageFour} alt='Menu Item 4' />
           <img className='reveal' src={menuImageFive} alt='Menu Item 5' />
+          <img className='reveal' src={menuImageSix} alt='Menu Item 6' />
+          <img className='reveal' src={menuImageSeven} alt='Menu Item 7' />
+          <img className='reveal' src={menuImageEight} alt='Menu Item 8' />
+          <img className='reveal' src={menuImageNine} alt='Menu Item 9' />
         </div>
       </section>
     </div>

@@ -510,7 +510,7 @@ section {
   .twoCol h2 {
     margin-left: 32px;
   }
-  .masa.twoCol .heading {
+  .rowReverse .heading {
     order: 2;
   }
   .content {
@@ -540,10 +540,9 @@ section {
   align-items: center;
   flex-wrap: wrap;
 }
-
 .menu-images-container img {
   flex: 1 1 0;
-  min-width: 250px;
+  min-width: 200px;
 }
 
 .footer {
