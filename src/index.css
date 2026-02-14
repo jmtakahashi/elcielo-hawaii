@@ -593,9 +593,11 @@ section {
 
 .reveal {
   opacity: 0;
-  transition: opacity 350ms ease;
+  transform: translateY(35px);
+  transition: all 500ms ease;
 }
 
 .reveal.revealed {
+  transform: translateY(0px);
   opacity: 1;
 }

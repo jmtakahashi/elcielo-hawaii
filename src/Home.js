@@ -11,7 +11,7 @@ export default function Home({ headerEl }) {
   useEffect(() => {
     const callback = (entries) => {
       entries.forEach((entry) => {
-        if (entry.intersectionRatio > 0.1) {
+        if (entry.intersectionRatio > 0.5) {
           entry.target.classList.add('revealed');
         }
       });

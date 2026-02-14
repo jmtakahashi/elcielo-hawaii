@@ -12,7 +12,7 @@ export default function About({ headerEl}) {
   useEffect(() => {
     const callback = (entries) => {
       entries.forEach((entry) => {
-        if (entry.intersectionRatio > 0.1) {
+        if (entry.intersectionRatio > 0.5) {
           entry.target.classList.add('revealed');
         }
       });
@@ -20,7 +20,7 @@ export default function About({ headerEl}) {
 
     const options = {
       root: null,
-      threshold: 0.1,
+      threshold: 0.5,
     };
 
     const observer = new IntersectionObserver(callback, options);
