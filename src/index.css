@@ -95,15 +95,14 @@ body {
   animation: fadeIn 1.5s ease;
 }
 
-body:has(#home) .header.scrolledPastHero,
-.header.scrolledPastHero {
-  background-color: var(--transparent-light-grey);
-}
-
 body:has(#home) .header {
   background-color: transparent;
 }
 
+.header.scrolledPastHero,
+body:has(#home) .header.scrolledPastHero {
+  background-color: var(--transparent-light-grey);
+}
 
 @media screen and (min-width: 768px) {
   .header {
@@ -135,11 +134,11 @@ body:has(#home) .header {
   gap: 1.8rem;
 }
 
+/* desktop and mobile a styles */
 .nav a {
   color: var(--text-color);
-  text-decoration: none;
-  transition: color 0.3s ease;
   font-size: 1.2rem;
+  text-decoration: none;
 }
 
 .socials {
@@ -150,7 +149,6 @@ body:has(#home) .header {
 
 .socials a {
   color: var(--text-color);
-  transition: color 0.3s ease;
 }
 
 @media screen and (min-width: 768px) {
@@ -267,16 +265,32 @@ body:has(#home) .header {
 
 /* end mobile menu styles */
 
+/* add top margin to main content on other pages except home */
 body:not(:has(#home)) main {
   margin-top: var(--header-height, 0px); /* fallback 0 if not set */
 }
 
-.hero {
+/* general section styles */
+section {
   position: relative;
-  min-height: 100svh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 2rem;
+  padding: 64px 0;
+}
+
+@media screen and (min-width: 768px) {
+  section {
+    gap: 3rem;
+    padding: 128px 0;
+  }
+}
+
+.hero {
+  position: relative;
+  min-height: 100dvh;
   animation: fadeIn 1.5s ease;
 }
 
@@ -300,8 +314,6 @@ body:not(:has(#home)) main {
   z-index: 1;
 }
 
-
-
 .hero-text {
   color: var(--accent);
   text-align: center;
@@ -310,6 +322,7 @@ body:not(:has(#home)) main {
   font-family: var(--serif);
 }
 
+/* make each line of hero text a separate block element */
 .hero-text span {
   display: block;
   margin-bottom: 0.15em;
@@ -324,23 +337,19 @@ body:not(:has(#home)) main {
   }
 }
 
+/* story section */
 .story {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 3rem;
   color: var(--accent);
-  padding: 64px 24px 0;
+  padding-bottom: 0;
 }
 
 .story > p {
-  font-family: var(--serif);
-  line-height: 1.2em;
-  font-size: 2.25rem;
   display: block;
+  font-family: var(--serif);
+  font-size: 2.25rem;
+  line-height: 1.2em;
   text-align: center;
+  padding: 0 24px;
 }
 
 .story > p > span {
@@ -357,25 +366,22 @@ body:not(:has(#home)) main {
   margin-top: 3rem;
 }
 
+/* definition section */
 .definition {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 128px 0 256px;
   overflow-x: hidden;
+  padding-top: 128px;
 }
 
 .definition > p {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 24px;
   font-family: var(--serif);
+  color: var(--accent);
   font-size: 1.5rem;
   line-height: 1.2em;
-  color: var(--accent);
   text-align: center;
+  padding: 0 24px;
 }
 
 .definition .large {
@@ -384,13 +390,13 @@ body:not(:has(#home)) main {
 }
 
 .definition::before {
-  content: "";
-  display: block;
-  background: black;
-  height: 100px;
-  width: 1px;
+  content: '';
   position: absolute;
   top: 0;
+  display: block;
+  height: 100px;
+  width: 1px;
+  background: black;
 }
 
 .definition img {
@@ -411,21 +417,18 @@ body:not(:has(#home)) main {
 }
 
 @media screen and (min-width: 768px) {
-  .story {
-    padding: 128px 24px 0;
-  }
   .story > p {
     font-size: 3.25rem;
   }
   .definition > p {
     font-size: 2.25rem;
-    padding: 32px;
+    padding-top: 32px;
     gap: .5em;
   }
   .definition .large {
     font-size: 1.75em;
   }
-    .definition img.float-right {
+  .definition img.float-right {
     right: 0;
     top: 0;
     padding-top: 64px;
@@ -439,43 +442,23 @@ body:not(:has(#home)) main {
   }
 }
 
-#about section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 64px 0;
-  gap: 2rem;
-}
-
-#about section.twoCol {
+.twoCol {
   display: grid;
   grid-template-columns: 1fr;
   align-items: center;
 }
 
-#about .heading {
+.heading {
   position: relative;
-}
-
-#about section.twoCol h2 {
-  margin-bottom: -8px;
-  margin-left: 24px;
-  position: inherit;
-  z-index: 1;
-}
-
-#about .content {
   padding: 0 32px;
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  text-align: center;
 }
 
-#about .content p {
-  margin-bottom: 1.5rem;
-  line-height: 1.8em;
-}
-
-#about .community .heading::after,
-#about .looking-forward .heading::after {
+.heading::after {
   content: '';
   display: block;
   height: 1px;
@@ -483,58 +466,59 @@ body:not(:has(#home)) main {
   background-color: var(--border-color);
 }
 
-#about .community .heading,
-#about .looking-forward .heading {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
-  text-align: center;
+.twoCol .heading {
+  padding: 0;
+  display: block;
 }
 
-#about .community .content,
-#about .looking-forward .content {
-  text-align: center;
+.twoCol .heading::after {
+  display: none;
+}
+
+.twoCol h2 {
+  text-align: left;
+  margin-bottom: -8px;
+  margin-left: 24px;
+  position: inherit;
+  z-index: 1;
+}
+
+.twoCol .content p {
+  text-align: left;
+}
+
+.content {
+  padding: 0 32px;
+}
+
+.content p {
+  margin-bottom: 1.5rem;
+  line-height: 1.8em;
+  text-align: left;
 }
 
 @media screen and (min-width: 768px) {
-  #about section {
-    padding-top: 128px 0;
-    gap: 4rem;
-  }
-  #about section.twoCol {
+  .twoCol {
     grid-template-columns: 1fr 1fr;
   }
-  #about section.twoCol h2 {
-  margin-left: 32px;
-}
+  .heading{
+    gap: 4rem;
+  }
+  .content {
+    padding: 0 48px;
+  }
+  .twoCol h2 {
+    margin-left: 32px;
+  }
   .masa.twoCol .heading {
     order: 2;
   }
-#about .content {
-  padding: 0 48px;
-}
-#about .community .heading,
-#about .looking-forward .heading {
-
-  gap: 4rem;
-}
-
-  #about .community .content,
-  #about .looking-forward .content {
+  .content {
     max-width: 80vw;
   }
-}
-
-.menu {
-  min-height: 60svh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 5rem;
-  padding-top: 128px;
-  padding-bottom: 128px;
+  .content p {
+    text-align: center;
+  }
 }
 
 .menu-links {
@@ -543,20 +527,13 @@ body:not(:has(#home)) main {
   align-items: center;
   gap: 2rem;
   text-align: center;
-  
-}
-
-.menu-links button {
-  font-family: var(--sans-serif);
-  font-size: 1.25rem;
-  letter-spacing: .2em;
-  color: var(--accent);
-  background: none;
-  border: none;
-  cursor: pointer;
 }
 
 .menu-images {
+  padding-bottom: 0;
+  padding-top: 0;
+}
+.menu-images-container {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -564,7 +541,7 @@ body:not(:has(#home)) main {
   flex-wrap: wrap;
 }
 
-.menu-images img {
+.menu-images-container img {
   flex: 1 1 0;
   min-width: 250px;
 }
