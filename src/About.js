@@ -10,17 +10,22 @@ export default function About({ headerEl}) {
 
   // fade into view on scroll
   useEffect(() => {
-    const callback = (entries) => {
+    let delay = 0;
+    const callback = (entries, observer) => {
       entries.forEach((entry) => {
-        if (entry.intersectionRatio > 0.5) {
+        if (entry.isIntersecting) {
+          entry.target.style.transitionDelay = `${delay}ms`;
+          delay += 80;
           entry.target.classList.add('revealed');
+          observer.unobserve(entry.target);
         }
       });
     };
 
     const options = {
       root: null,
-      threshold: 0.5,
+      threshold: 0,
+      rootMargin: '0px 0px -10% 0px',
     };
 
     const observer = new IntersectionObserver(callback, options);
