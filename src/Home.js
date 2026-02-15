@@ -9,8 +9,9 @@ export default function Home({ headerEl }) {
 
   // fade into view on scroll
   useEffect(() => {
-    let delay = 0;
     const callback = (entries, observer) => {
+      let delay = 0;
+
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.style.transitionDelay = `${delay}ms`;
@@ -33,7 +34,7 @@ export default function Home({ headerEl }) {
       observer.observe(el); // give it the element to observe
     }
 
-    return () => observer.disconnect; // cleanup on unmount
+    return () => observer.disconnect(); // cleanup on unmount
   }, []);
 
   // header transparency on scroll
