@@ -8,12 +8,12 @@ export default function Home({ headerEl }) {
   // fade into view on scroll
   useEffect(() => {
     const callback = (entries, observer) => {
-      let delay = 0;
+      // let delay = 0;
 
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.style.transitionDelay = `${delay}ms`;
-          delay += 80;
+          // entry.target.style.transitionDelay = `${delay}ms`;
+          // delay += 80;
           entry.target.classList.add('revealed');
           observer.unobserve(entry.target); // unobserve after revealing
         }
