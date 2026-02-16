@@ -368,7 +368,6 @@ section {
   transform-origin: top;
   transform: scaleY(0);
   transition: transform 800ms ease;
-  will-change: transform;
 }
 
 .story > p:last-child::after {
@@ -467,7 +466,6 @@ section {
   background-color: var(--border-color);
   transform: scaleX(0);
   transition: transform 600ms ease-in-out;
-  will-change: transform;
 }
 
 .heading:has(h2.reveal.revealed)::after {
@@ -617,10 +615,6 @@ section {
   transition:
     opacity 600ms cubic-bezier(0.16, 1, 0.3, 1),
     transform 600ms cubic-bezier(0.16, 1, 0.3, 1),
-}
-
-.reveal:not(.revealed) {
-  will-change: transform, opacity;
 }
 
 .reveal.revealed {
