@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from 'react';
 import { useHeader } from './contexts/HeaderContext';
 import menuImageOne from './assets/images/el-cielo-menu-1-1024px.jpg';
 import menuImageTwo from './assets/images/el-cielo-menu-2-1024px.jpg';
-import menuImageThree from './assets/images/el-cielo-menu-3-1024px.jpg';
 import menuImageFour from './assets/images/el-cielo-menu-4-1024px.jpg';
 import menuImageFive from './assets/images/el-cielo-menu-5-1024px.jpg';
 import menuImageSix from './assets/images/el-cielo-menu-6-1024px.jpg';
@@ -88,10 +87,7 @@ export default function Menu({ headerEl }) {
 
           <p className='reveal'>
             Our menu centers on tradition, elegantly executed with attention to
-            detail.  Tapas and pintxos highlight clean flavors and precise
-            technique, while signature paellas are prepared patiently, allowing
-            depth and balance to develop naturally.  Desserts offer a quiet
-            finish, completing the meal with clarity and balance.
+            detail.  
           </p>
 
           <p className='reveal'>
@@ -120,7 +116,6 @@ export default function Menu({ headerEl }) {
         <div className='menu-images-container'>
           <img className='reveal' src={menuImageOne} alt='Menu Item 1' />
           <img className='reveal' src={menuImageTwo} alt='Menu Item 2' />
-          <img className='reveal' src={menuImageThree} alt='Menu Item 3' />
           <img className='reveal' src={menuImageFour} alt='Menu Item 4' />
           <img className='reveal' src={menuImageFive} alt='Menu Item 5' />
           <img className='reveal' src={menuImageSix} alt='Menu Item 6' />

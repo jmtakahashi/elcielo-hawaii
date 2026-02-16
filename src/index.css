@@ -359,18 +359,28 @@ section {
 .story > p::after {
   content: "";
   display: block;
-  background: black;
   height: 100px;
   width: 1px;
   margin: auto;
+  background: black;
   margin-top: 3rem;
+
+  transform-origin: top;
+  transform: scaleY(0);
+  transition: transform 800ms ease;
+  will-change: transform;
+}
+
+.story > p:last-child::after {
+  height: 200px;
+  margin-bottom: -100px;
+}
+
+.story > p.revealed::after {
+  transform: scaleY(1);
 }
 
 /* definition section */
-.definition {
-  overflow-x: hidden;
-  padding-top: 128px;
-}
 
 .definition > p {
   display: flex;
@@ -387,16 +397,6 @@ section {
 .definition .large {
   font-size: 1.75em;
   line-height: 1.2em;
-}
-
-.definition::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  display: block;
-  height: 100px;
-  width: 1px;
-  background: black;
 }
 
 .definition img {
@@ -458,12 +458,20 @@ section {
   text-align: center;
 }
 
+/* divider lines for headings */
 .heading::after {
   content: '';
   display: block;
   height: 1px;
   width: 300px;
   background-color: var(--border-color);
+  transform: scaleX(0);
+  transition: transform 600ms ease-in-out;
+  will-change: transform;
+}
+
+.heading:has(h2.reveal.revealed)::after {
+  transform: scaleX(1);
 }
 
 .twoCol .heading {
@@ -535,7 +543,8 @@ section {
 }
 .menu-images-container {
   width: 100%;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
@@ -543,6 +552,18 @@ section {
 .menu-images-container img {
   flex: 1 1 0;
   min-width: 200px;
+}
+
+@media screen and (min-width: 768px) {
+  .menu-images-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .menu-images-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 .footer {

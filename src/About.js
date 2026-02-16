@@ -87,7 +87,7 @@ export default function About({ headerEl}) {
 
       <section ref={aboutSectionRef} className='our-story twoCol rowReverse'>
         <div className='heading'>
-          <h2 className='reveal'>Our Story</h2>
+          <h2 className='reveal'>El Cielo</h2>
           <img className='reveal' src={ourStoryImage} alt='El Cielo Concept' />
         </div>
         <div className='content'>

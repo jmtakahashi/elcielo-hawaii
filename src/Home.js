@@ -1,7 +1,5 @@
 import { useEffect, useRef } from 'react';
 import { useHeader } from './contexts/HeaderContext';
-import expressionImageOne from './assets/images/el-cielo-expression-2000px.jpg';
-import expressionImageTwo from './assets/images/el-cielo-expression-2-2000px.jpg';
 
 export default function Home({ headerEl }) {
   const storySectionRef = useRef();
@@ -14,6 +12,8 @@ export default function Home({ headerEl }) {
 
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
+          console.log(entry.target)
+
           entry.target.style.transitionDelay = `${delay}ms`;
           delay += 80;
           entry.target.classList.add('revealed');
@@ -36,6 +36,10 @@ export default function Home({ headerEl }) {
 
     return () => observer.disconnect(); // cleanup on unmount
   }, []);
+
+
+
+
 
   // header transparency on scroll
   useEffect(() => {
@@ -96,11 +100,6 @@ export default function Home({ headerEl }) {
       </section>
 
       <section className='definition'>
-        <img
-          src={expressionImageOne}
-          alt='Definition of El Cielo'
-          className='home-image float-right reveal'
-        />
         <p>
           <span className='reveal'>El Cielo is</span>
           <span className='large reveal'>a quiet expression of</span>
@@ -109,11 +108,6 @@ export default function Home({ headerEl }) {
           <span className='reveal'>becomes unnecessary</span>
           <span className='reveal'>at the table.</span>
         </p>
-        <img
-          src={expressionImageTwo}
-          alt='Definition of El Cielo'
-          className='home-image float-left reveal'
-        />
       </section>
     </div>
   );
