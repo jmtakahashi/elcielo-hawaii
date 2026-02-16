@@ -12,8 +12,6 @@ export default function Home({ headerEl }) {
 
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          console.log(entry.target)
-
           entry.target.style.transitionDelay = `${delay}ms`;
           delay += 80;
           entry.target.classList.add('revealed');
@@ -36,10 +34,6 @@ export default function Home({ headerEl }) {
 
     return () => observer.disconnect(); // cleanup on unmount
   }, []);
-
-
-
-
 
   // header transparency on scroll
   useEffect(() => {
