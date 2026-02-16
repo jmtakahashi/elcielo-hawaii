@@ -17,7 +17,7 @@ export default function Home({ headerEl }) {
           entry.target.style.transitionDelay = `${delay}ms`;
           delay += 80;
           entry.target.classList.add('revealed');
-          observer.unobserve(entry.target);
+          observer.unobserve(entry.target); // unobserve after revealing
         }
       });
     };
