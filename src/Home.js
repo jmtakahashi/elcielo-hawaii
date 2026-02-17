@@ -85,10 +85,10 @@ export default function Home({ headerEl }) {
           <span>Shaped in</span> Japan
         </p>
         <p className='reveal'>
-          <span>Refined in</span> Spain
+          <span>Refined in</span> Los Angeles
         </p>
         <p className='reveal'>
-          <span>Perfected in</span> Los Angeles
+          <span>Perfected in</span> Spain
         </p>
       </section>
 
