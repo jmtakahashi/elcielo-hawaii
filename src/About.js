@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import { useHeader } from './contexts/HeaderContext';
-import ourStoryImage from './assets/images/el-cielo-entrance-1500px.jpg';
-import masaImage from './assets/images/el-cielo-masa-gushiken-1500px.jpg';
-import philosophyImage from './assets/images/el-cielo-concept-2000px.jpg';
+import ourStoryImage from './assets/images/el-cielo-entrance-1024px.jpg';
+import masaImage from './assets/images/el-cielo-masa-gushiken-1024px.jpg';
+import philosophyImage from './assets/images/el-cielo-concept-1024px.jpg';
 
 export default function About({ headerEl}) {
   const aboutSectionRef = useRef();
@@ -70,17 +70,15 @@ export default function About({ headerEl}) {
         </div>
         <div className='content'>
           <p className='reveal'>
-            Masa Arnaldo Gushiken was born in Argentina and moved to Japan at
-            the age of twelve.
-          </p>
-          <p className='reveal'>
-            Seeking depth and refinement, his culinary journey brought him back
-            to Japan,where technique, precision, and respect for ingredients are
-            treated not as skills,but as values practiced daily.
-          </p>
-          <p className='reveal'>
-            The culmination of these experiences finally came together in
-            Hawaii, where Masa now calls home.
+            Masa Arnaldo Gushiken was born in Argentina and built his culinary
+            foundation through professional training in Japan. He later worked
+            in Los Angeles before refining his craft in Spain, where tapas
+            culture, paella, and regional Spanish cooking became central to his
+            approach. Seeking depth and refinement, his culinary journey brought
+            him back to Japan, where technique, precision, and respect for
+            ingredients are treated not as skills, but as values practiced
+            daily. Following his return to Japan, Masa moved to Hawaii where the
+            culmination of his experience came together.
           </p>
         </div>
       </section>
@@ -92,22 +90,16 @@ export default function About({ headerEl}) {
         </div>
         <div className='content'>
           <p className='reveal'>
-            Seeking depth and refinement, the journey returned to Japan, where
-            technique, precision, and respect for ingredients are treated not as
-            skills, but as daily-practiced values. It was in Hawaii that these
-            experiences finally came together.
+            Rooted in classic Spanish technique and shaped by years of
+            experience in Japan, Los Angeles and Spain, El Cielo is a natural
+            continuation of Masa’s journey; a true expression of his experience
+            in the locales he has worked and studied in.
           </p>
           <p className='reveal'>
-            Hawaii is shaped by movement - of people, cultures, and shared
-            histories. Here, cooking is not about importing ideas or narratives,
-            but about listening: to the land, the ocean, and the community that
-            sustains them.
-          </p>
-          <p className='reveal'>
-            At El Cielo, our menu is an honest response to this journey - not
-            fusion for novelty’s sake, but food grounded in where we are,
-            informed by where we have been, and expressed without the need for
-            explanation.
+            Multiply influences come together under our roof where great care is
+            taken to preserve tradition and authenticity, embrace creativity,
+            execute with discipline, care and attention to detail and foster
+            community.
           </p>
         </div>
       </section>
@@ -123,20 +115,17 @@ export default function About({ headerEl}) {
         </div>
         <div className='content'>
           <p className='reveal'>
-            Our cooking reflects multiple influences - the openness of
-            Argentina, the discipline refined in Japan, and the creativity
-            shaped through Spain and Los Angeles.
+            Influences beyond Spain elegantly infuse our traditional Spanish
+            base, but never overpower it. Tapas and pintxos highlight clean
+            flavors and precise technique, while signature paellas are prepared
+            patiently to develop depth and balance. Desserts offer a quiet
+            finish, completing the meal with balance.
           </p>
           <p className='reveal'>
-            Ingredient quality and seasonality guide each of our dishes, with
-            thoughtful sourcing and minimal intervention preserving
-            authenticity.
-          </p>
-          <p className='reveal'>
-            Ingredients are selected at their peak, sourced from Hawaii and
-            regions with long-standing culinary traditions such as Spain and
-            Japan. We allow our ingredients to guide us - respecting its origin,
-            season, and natural character.
+            Ingredient quality and seasonality guide each of our dishes.
+            Ingredients are selected at their peak, sourced both locally in
+            Hawaii and from regions with long-standing culinary traditions such
+            as Spain and Japan.
           </p>
         </div>
       </section>
@@ -152,14 +141,12 @@ export default function About({ headerEl}) {
           </p>
           <p className='reveal'>
             We work with producers and partners, both locally and
-            internationally, who share a commitment to quality. We take extra
-            care in sourcing ingredients that are sustainably and ethically
-            produced, and continue that care in the kitchen, curating a menu
-            worthy of the customers who come to dine with us.
+            internationally, who share a commitment to quality.
           </p>
           <p className='reveal'>
             We believe meaningful food begins with mutual respect and we
-            continue to grow together with the community that has welcomed us.
+            continue to grow together with the community of patrons and
+            supporters that have welcomed and supported us.
           </p>
         </div>
       </section>

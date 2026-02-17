@@ -312,7 +312,7 @@ section {
     rgba(255,255,255,0.85),
     rgba(255,255,255,0.85)
   ),
-  url('./assets/images/el-cielo-interior-14.jpg') center/cover no-repeat;
+  url('./assets/images/el-cielo-interior-vertical-1024px.jpg') center/cover no-repeat;
   animation: fadeIn 1.5s ease;
 }
 
@@ -333,6 +333,11 @@ section {
 @media screen and (min-width: 768px) {
   .hero-content {
     gap: 4rem;
+    background: linear-gradient(
+      rgba(255,255,255,0.85),
+      rgba(255,255,255,0.85)
+    ),
+    url('./assets/images/el-cielo-interior-2000px.jpg') center/cover no-repeat;
   }
   .hero-text {
     font-size: 3rem;

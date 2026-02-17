@@ -78,19 +78,6 @@ export default function Menu({ headerEl }) {
         </div>
         <div className='content'>
           <p className='reveal'>
-            El Cielo’s cuisine is grounded in classical Spanish technique,
-            shaped by years spent in Japan, Los Angeles, and Spain, and
-            expressed through a clear sense of place in Hawaii. Influences
-            beyond Spain present themselves in subtle ways, taking care to
-            support the cuisine’s foundation and not overwhelm it.
-          </p>
-
-          <p className='reveal'>
-            Our menu centers on tradition, elegantly executed with attention to
-            detail.  
-          </p>
-
-          <p className='reveal'>
             Our menu’s change with the seasons. Click below for our current
             offerings.
           </p>
