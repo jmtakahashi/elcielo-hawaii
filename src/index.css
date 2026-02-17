@@ -229,11 +229,11 @@ body:has(#home) .header.scrolledPastHero {
 .mobileMenuToggle > span:after, 
 .mobileMenuToggle > span:before {
     width: 100%;
-    height: 2px;
+    height: 1px;
     background-color: var(--accent);
     transition: all 0.3s;
     backface-visibility: hidden;
-    border-radius: 2px;
+    border-radius: 1px;
 }
 
 .mobileMenuToggle > span:after,
