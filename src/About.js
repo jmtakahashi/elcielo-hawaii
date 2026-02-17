@@ -63,7 +63,7 @@ export default function About({ headerEl}) {
 
   return (
     <div id='about'>
-      <section className='masa twoCol'>
+      <section ref={aboutSectionRef} className='masa twoCol'>
         <div className='heading'>
           <h2 className='reveal'>Masa</h2>
           <img className='reveal' src={masaImage} alt='Masa Arnaldo Gushiken' />
@@ -85,7 +85,7 @@ export default function About({ headerEl}) {
         </div>
       </section>
 
-      <section ref={aboutSectionRef} className='our-story twoCol rowReverse'>
+      <section className='our-story twoCol rowReverse'>
         <div className='heading'>
           <h2 className='reveal'>El Cielo</h2>
           <img className='reveal' src={ourStoryImage} alt='El Cielo Concept' />

@@ -18,7 +18,9 @@
   --accent: #013b47;
   --light-grey: rgb(239, 239, 239);
   --transparent-light-grey: rgba(239, 239, 239, 0.85);
-  --section-background-color: #f8f9fa;
+  --off-white: rgba(248, 249, 250, 1.0);
+  --transparent-off-white: rgba(248, 249, 250, 0.75);
+  --section-background-color: var(--off-white);
   --text-color: #000000;
   --border-color: #000000;
   --serif: 'Serif', serif;
@@ -87,7 +89,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  background-color: var(--light-grey);
+  background-color: var(--off-white);
   padding: 24px;
   color: var(--text-color);
   z-index: 100;
@@ -101,7 +103,7 @@ body:has(#home) .header {
 
 .header.scrolledPastHero,
 body:has(#home) .header.scrolledPastHero {
-  background-color: var(--transparent-light-grey);
+  background-color: var(--transparent-off-white);
 }
 
 @media screen and (min-width: 768px) {
@@ -334,14 +336,10 @@ section {
 }
 
 /* story section */
-.story {
-  color: var(--accent);
-  padding-bottom: 0;
-}
-
 .story > p {
   display: block;
   font-family: var(--serif);
+  color: var(--accent);
   font-size: 2.25rem;
   line-height: 1.2em;
   text-align: center;
@@ -360,7 +358,6 @@ section {
   margin: auto;
   background: black;
   margin-top: 3rem;
-
   transform-origin: top;
   transform: scaleY(0);
   transition: transform 800ms ease;
@@ -369,7 +366,7 @@ section {
 
 .story > p:last-child::after {
   height: 200px;
-  margin-bottom: -100px;
+  margin-bottom: -64px;
 }
 
 .story > p.revealed::after {
@@ -416,9 +413,23 @@ section {
   .story > p {
     font-size: 3.25rem;
   }
+  .story > p::after {
+    height: 200px;
+  }
+  .story > p:last-child::after {
+    height: 250px;
+    margin-bottom: -124px;
+  }
+   .story > p:last-child::after {
+    height: 300px;
+    margin-bottom: -128px;
+  }
+  .definition {
+    padding-top: 3rem;
+  }
+  
   .definition > p {
     font-size: 2.25rem;
-    padding-top: 32px;
     gap: .5em;
   }
   .definition .large {
