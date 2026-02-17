@@ -6,14 +6,10 @@ export default function Footer() {
 
   return (
     <footer className='footer'>
-      <img
-        src={logo}
-        alt='El Cielo Hawaii Logo'
-        className='logo'
-      />
+      <img src={logo} alt='El Cielo Hawaii Logo' className='logo' />
       <div className='address'>
-        <span>346 Lewers Street, </span>
-        <span>Ground Floor, </span>
+        <span>346 Lewers Street,&nbsp;</span>
+        <span>Ground Floor,&nbsp;</span>
         <span>Honolulu, HI 96815</span>
       </div>
       <div className='hours'>5:00 PM - 11:00 PM</div>
@@ -23,13 +19,13 @@ export default function Footer() {
           <span>info@elcielo-hawaii.com</span>
         </a>
       </div>
-      <div>
+      <div className='copyright-contact-container'>
         <div className='copyright'>
-          <span>© {currentYear} El Cielo Hawaii. </span>
+          <span>© {currentYear} El Cielo Hawaii.&nbsp;</span>
           <span>All rights reserved.</span>
         </div>
         <div className='credit'>
-          <span>Made with 🖤 by Jaytee</span>
+          <span>Made with 🖤 by <a href="https://whoisjaytee.com" target="_blank" rel="noopener noreferrer">Jaytee</a></span>
         </div>
       </div>
     </footer>
