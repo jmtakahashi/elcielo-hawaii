@@ -1,9 +1,9 @@
 import { useEffect, useRef } from 'react';
-// import { useHeader } from './contexts/HeaderContext';
+import { useHeader } from './contexts/HeaderContext';
 
 export default function Home({ headerEl }) {
   const storySectionRef = useRef();
-  // const { headerHeight } = useHeader();
+  const { headerHeight } = useHeader();
 
   // fade into view on scroll
   useEffect(() => {
@@ -36,27 +36,27 @@ export default function Home({ headerEl }) {
   }, []);
 
   // header transparency on scroll
-  // useEffect(() => {
-  //   const observedSection = storySectionRef.current;
+  useEffect(() => {
+    const observedSection = storySectionRef.current;
 
-  //   const handleScroll = (e) => {
-  //     if (!observedSection || !headerEl) return;
+    const handleScroll = (e) => {
+      if (!observedSection || !headerEl) return;
 
-  //     const observedSectionTop = observedSection.getBoundingClientRect().top;
+      const observedSectionTop = observedSection.getBoundingClientRect().top;
 
-  //     if (observedSectionTop < headerHeight) {
-  //       headerEl.classList.add('scrolledPastHero');
-  //     } else {
-  //       headerEl.classList.remove('scrolledPastHero');
-  //     }
-  //   };
+      if (observedSectionTop < headerHeight) {
+        headerEl.classList.add('scrolledPastHero');
+      } else {
+        headerEl.classList.remove('scrolledPastHero');
+      }
+    };
 
-  //   document.addEventListener('scroll', handleScroll);
+    document.addEventListener('scroll', handleScroll);
 
-  //   return () => {
-  //     document.removeEventListener('scroll', handleScroll);
-  //   };
-  // }, [headerHeight, headerEl]);
+    return () => {
+      document.removeEventListener('scroll', handleScroll);
+    };
+  }, [headerHeight, headerEl]);
 
   return (
     <div id='home'>

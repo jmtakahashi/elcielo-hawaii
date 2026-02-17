@@ -168,8 +168,6 @@ body:has(#home) .header.scrolledPastHero {
   gap: 2rem;
   padding: 32px;
   background-color: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(7px); /* blur everything behind the menu */
-  -webkit-backdrop-filter: blur(7px); /* for Safari support */
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;
