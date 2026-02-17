@@ -114,6 +114,7 @@ body:has(#home) .header.scrolledPastHero {
 
 .header .logo {
   width: 100px;
+  animation: fadeIn 1.5s ease;
 }
 
 .header .mobileMenu .logo {
@@ -206,6 +207,7 @@ body:has(#home) .header.scrolledPastHero {
   border: none;
   cursor: pointer;
   z-index: 100;
+  animation: fadeIn 1.5s ease;
 }
 
 @media screen and (min-width: 501px) {
@@ -307,9 +309,6 @@ section {
     rgba(255,255,255,0.85)
   ),
   url('./assets/images/el-cielo-interior-14.jpg') center/cover no-repeat;
-}
-
-.hero-content > * {
   animation: fadeIn 1.5s ease;
 }
 
