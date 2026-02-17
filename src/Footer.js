@@ -5,7 +5,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className='footer'>
+    <footer className='footer reveal'>
       <img src={logo} alt='El Cielo Hawaii Logo' className='logo' />
       <div className='address'>
         <span>346 Lewers Street,&nbsp;</span>

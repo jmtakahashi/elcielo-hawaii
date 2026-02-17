@@ -600,8 +600,16 @@ section {
   display: block;
   height: 1px;
   width: 15%;
-  max-width: 400px;
+  max-width: 200px;
   background-color: var(--border-color);
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 600ms ease-in-out;
+  will-change: transform;
+}
+
+.footer.revealed::before {
+  transform: scaleX(1);
 }
 
 .footer .logo {
