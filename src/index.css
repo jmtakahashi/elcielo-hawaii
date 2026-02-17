@@ -127,12 +127,11 @@ body:has(#home) .header.scrolledPastHero {
   }
 }
 
-.nav.desktop,
-.socials.desktop {
-  display: none;
-}
-
+/* desktop and mobile nav styles */
 .nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 1.8rem;
 }
 
@@ -153,10 +152,10 @@ body:has(#home) .header.scrolledPastHero {
   color: var(--text-color);
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 767px) {
   .nav.desktop,
   .socials.desktop {
-    display: flex;
+    display: none;
   }
 }
 
@@ -189,11 +188,16 @@ body:has(#home) .header.scrolledPastHero {
 }
 
 .mobileMenu nav {
-  display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 2rem;
-  
+  gap: .65rem;
+}
+
+.mobileMenu .socials {
+  gap: .5rem;
+}
+
+.mobileMenu a {
+  padding: 0.5em;
 }
 
 /* mobile menu toggle styles */
