@@ -60,7 +60,7 @@ export default function Home({ headerEl }) {
 
   return (
     <div id='home'>
-      <section className='hero'>
+      {/* <section className='hero'>
         <div className='hero-background'></div>
         <div className='hero-content'>
           <p className='hero-text'>
@@ -76,7 +76,7 @@ export default function Home({ headerEl }) {
             Reservations
           </a>
         </div>
-      </section>
+      </section> */}
 
       <section ref={storySectionRef} className='story'>
         <p className='reveal'>

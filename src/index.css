@@ -95,14 +95,14 @@ body {
   animation: fadeIn 1.5s ease;
 }
 
-/* body:has(#home) .header {
+body:has(#home) .header {
   background-color: transparent;
 }
 
 .header.scrolledPastHero,
 body:has(#home) .header.scrolledPastHero {
   background-color: var(--transparent-light-grey);
-} */
+}
 
 @media screen and (min-width: 768px) {
   .header {
