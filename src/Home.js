@@ -61,7 +61,6 @@ export default function Home({ headerEl }) {
   return (
     <div id='home'>
       <section className='hero'>
-        <div className='hero-background'></div>
         <div className='hero-content'>
           <p className='hero-text'>
             <span>A culinary journey that</span>

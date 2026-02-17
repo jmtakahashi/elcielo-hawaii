@@ -290,31 +290,24 @@ section {
 
 .hero {
   position: relative;
-  height: 100dvh;
+  height: 100vh;
   animation: fadeIn 1.5s ease;
 }
 
-.hero-background {
-  position: absolute;
-  top: 0;
-  left: 0;
+.hero-content {
   width: 100%;
   height: 100%;
-  /* background: linear-gradient(
-      rgba(0,0,0,0.75),
-      rgba(0,0,0,0.75)
-    ),
-  url('./assets/images/el-cielo-interior-14.jpg') center/cover no-repeat; */
-}
-
-.hero-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 3rem;
   padding: 32px;
-  z-index: 1;
+    /* background: linear-gradient(
+      rgba(0,0,0,0.75),
+      rgba(0,0,0,0.75)
+    ),
+  url('./assets/images/el-cielo-interior-14.jpg') center/cover no-repeat; */
 }
 
 .hero-text {
