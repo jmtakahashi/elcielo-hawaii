@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from 'react';
-import { useHeader } from './contexts/HeaderContext';
-import ourStoryImage from './assets/images/el-cielo-entrance-1024px.jpg';
-import masaImage from './assets/images/el-cielo-masa-gushiken-1024px.jpg';
-import philosophyImage from './assets/images/el-cielo-concept-1024px.jpg';
+import { useHeader } from '../contexts/HeaderContext';
+import ourStoryImage from '../assets/images/el-cielo-entrance-1024px.jpg';
+import masaImage from '../assets/images/el-cielo-masa-gushiken-1024px.jpg';
+import philosophyImage from '../assets/images/el-cielo-concept-1024px.jpg';
 
 export default function About({ headerEl}) {
   const aboutSectionRef = useRef();
@@ -86,7 +86,7 @@ export default function About({ headerEl}) {
       <section className='our-story twoCol rowReverse'>
         <div className='heading'>
           <h2 className='reveal'>El Cielo</h2>
-          <img className='reveal' src={ourStoryImage} alt='El Cielo Concept' />
+          <img className='reveal' src={ourStoryImage} alt='El Cielo Concept' loading='lazy' />
         </div>
         <div className='content'>
           <p className='reveal'>
@@ -96,7 +96,7 @@ export default function About({ headerEl}) {
             in the locales he has worked and studied in.
           </p>
           <p className='reveal'>
-            Multiply influences come together under our roof where great care is
+            Multiple influences come together under our roof where great care is
             taken to preserve tradition and authenticity, embrace creativity,
             execute with discipline, care and attention to detail and foster
             community.
@@ -111,6 +111,7 @@ export default function About({ headerEl}) {
             className='reveal'
             src={philosophyImage}
             alt='El Cielo Philosophy'
+            loading='lazy'
           />
         </div>
         <div className='content'>

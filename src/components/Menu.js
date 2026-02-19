@@ -1,13 +1,13 @@
 import React, { useEffect, useRef } from 'react';
-import { useHeader } from './contexts/HeaderContext';
-import menuImageOne from './assets/images/el-cielo-menu-1-1024px.jpg';
-import menuImageTwo from './assets/images/el-cielo-menu-2-1024px.jpg';
-import menuImageFour from './assets/images/el-cielo-menu-4-1024px.jpg';
-import menuImageFive from './assets/images/el-cielo-menu-5-1024px.jpg';
-import menuImageSix from './assets/images/el-cielo-menu-6-1024px.jpg';
-import menuImageSeven from './assets/images/el-cielo-menu-7-1024px.jpg';
-import menuImageEight from './assets/images/el-cielo-menu-8-1024px.jpg';
-import menuImageNine from './assets/images/el-cielo-menu-9-1024px.jpg';
+import { useHeader } from '../contexts/HeaderContext';
+import menuImageOne from '../assets/images/el-cielo-menu-1-1024px.jpg';
+import menuImageTwo from '../assets/images/el-cielo-menu-2-1024px.jpg';
+import menuImageFour from '../assets/images/el-cielo-menu-4-1024px.jpg';
+import menuImageFive from '../assets/images/el-cielo-menu-5-1024px.jpg';
+import menuImageSix from '../assets/images/el-cielo-menu-6-1024px.jpg';
+import menuImageSeven from '../assets/images/el-cielo-menu-7-1024px.jpg';
+import menuImageEight from '../assets/images/el-cielo-menu-8-1024px.jpg';
+import menuImageNine from '../assets/images/el-cielo-menu-9-1024px.jpg';
 
 export default function Menu({ headerEl }) {
   const menuSectionRef = useRef();

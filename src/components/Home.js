@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { useHeader } from './contexts/HeaderContext';
+import { useHeader } from '../contexts/HeaderContext';
 
 export default function Home({ headerEl }) {
   const storySectionRef = useRef();
