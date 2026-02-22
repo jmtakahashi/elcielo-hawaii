@@ -56,6 +56,10 @@ h2 {
   }
 }
 
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
 body {
   background-color: var(--section-background-color);
   font-family: var(--sans-serif);
