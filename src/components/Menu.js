@@ -84,14 +84,14 @@ export default function Menu({ headerEl }) {
         </div>
         <div className='menu-links'>
           <button
-            className='button reveal'
+            className='link-button reveal'
             href='/ENGLISH.pdf'
             onClick={() => openPDF('ENGLISH')}
           >
             View english menu
           </button>
           <button
-            className='button reveal'
+            className='link-button reveal'
             href='/JAPANESE.pdf'
             onClick={() => openPDF('JAPANESE')}
           >

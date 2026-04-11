@@ -3,7 +3,7 @@ import { useHeader } from '../contexts/HeaderContext';
 import { Link, NavLink, useLocation } from 'react-router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faInstagram, faYelp, faGoogle } from '@fortawesome/free-brands-svg-icons';
-import logo from '../assets/images/logo-black.png';
+import logo from '../assets/images/el-cielo-logo-no-border-500px.png';
 
 export default function Header({ setHeaderEl }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

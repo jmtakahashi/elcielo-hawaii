@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from '../assets/images/logo-black.png';
+import logo from '../assets/images/el-cielo-logo-no-border-500px.png';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();

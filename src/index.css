@@ -1,3 +1,8 @@
+/*
+blue: #013b47, rgb(1, 59, 71)
+beige: #b8b991, rgb(184, 185, 145)
+*/
+
 @font-face {
     font-family: 'SansSerif';
     src: url('./assets/fonts/sanserif.woff2') format('woff2');
@@ -15,13 +20,22 @@
 :root {
   --off-white: rgba(248, 249, 250, 1.0);
   --transparent-off-white: rgba(248, 249, 250, 0.75);
-  --secondary-color: rgb(189, 188, 149);
+  --secondary-color: #b8b991;
   --accent: #013b47;
-  --section-background-color: var(--off-white);
-  --text-color: #000000;
-  --border-color: #000000;
+
   --serif: 'Serif', serif;
   --sans-serif: 'SansSerif', sans-serif;
+
+  --section-background-color: var(--off-white);
+  --text-color: var(--accent);
+  --border-color: var(--accent);
+
+  --hero-bg-color: linear-gradient(
+    rgba(1, 59, 71, 0.00),
+    rgba(1, 59, 71, 0.60),
+    rgba(1, 59, 71, 0.00)
+  );
+  --hero-text-color: var(--secondary-color);
 }
 
 @keyframes fadeIn {
@@ -33,6 +47,18 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background-color: var(--section-background-color);
+  font-family: var(--sans-serif);
+  letter-spacing: .15em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 img {
@@ -56,31 +82,37 @@ h2 {
   }
 }
 
-html {
-  -webkit-tap-highlight-color: transparent;
-}
-
-body {
-  background-color: var(--section-background-color);
+.link-button {
+  padding: 0.25em 0;
+  background-color: transparent;
+  border: 1px solid var(--accent);
+  border-color: transparent transparent var(--accent);
   font-family: var(--sans-serif);
-  letter-spacing: .2em;
+  font-size: 1rem;
+  letter-spacing: inherit;
+  line-height: inherit;
+  text-decoration: none;
+  color: var(--accent);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  cursor: pointer;
 }
 
 .button {
-  padding: 0.75em 1.5em;
+  padding: 1em 2em;
   background-color: var(--accent);
   border: 1px solid var(--secondary-color);
   font-family: var(--sans-serif);
-  font-size: 1.25rem;
+  font-size: 1rem;
   letter-spacing: .2em;
+  text-transform: uppercase;
   text-decoration: none;
   color: var(--secondary-color);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   cursor: pointer;
 }
+
 
 .header {
   position: fixed;
@@ -92,7 +124,7 @@ body {
   align-items: flex-start;
   background-color: var(--off-white);
   padding: 24px;
-  color: var(--text-color);
+  color: var(--secondary-color);
   z-index: 100;
   transition: background-color 0.3s ease;
 }
@@ -104,6 +136,7 @@ body:has(#home) .header {
 .header.scrolledPastHero,
 body:has(#home) .header.scrolledPastHero {
   background-color: var(--transparent-off-white);
+  color: var(--accent);
 }
 
 @media screen and (min-width: 768px) {
@@ -309,16 +342,14 @@ section {
   align-items: center;
   gap: 3rem;
   padding: 32px;
-  background: linear-gradient(
-    rgba(255,255,255,0.85),
-    rgba(255,255,255,0.85)
-  ),
-  url('./assets/images/el-cielo-interior-vertical-1024px.jpg') center/cover no-repeat;
+  background: 
+    var(--hero-bg-color),
+    url('./assets/images/el-cielo-interior-saturated-vertical-1024px.jpg') center/cover no-repeat;
   animation: fadeIn 1.5s ease;
 }
 
 .hero-text {
-  color: var(--accent);
+  color: var(--hero-text-color);
   text-align: center;
   font-size: 2.25rem;
   line-height: 1.25em;
@@ -334,11 +365,9 @@ section {
 @media screen and (min-width: 768px) {
   .hero-content {
     gap: 4rem;
-    background: linear-gradient(
-      rgba(255,255,255,0.85),
-      rgba(255,255,255,0.85)
-    ),
-    url('./assets/images/el-cielo-interior-2000px.jpg') center/cover no-repeat;
+    background: 
+    var(--hero-bg-color),
+    url('./assets/images/el-cielo-interior-saturated-2000px.jpg') center/cover no-repeat;
   }
   .hero-text {
     font-size: 3rem;

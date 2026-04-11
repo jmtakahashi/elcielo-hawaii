@@ -1,8 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import { useHeader } from '../contexts/HeaderContext';
-import ourStoryImage from '../assets/images/el-cielo-entrance-1024px.jpg';
-import masaImage from '../assets/images/el-cielo-masa-gushiken-1024px.jpg';
-import philosophyImage from '../assets/images/el-cielo-concept-1024px.jpg';
+import masaImage from '../assets/images/el-cielo-masa-gushiken-saturated-1024px.jpg';
+import ourStoryImage from '../assets/images/el-cielo-interior-angle-saturated-1024px.jpg';
+import ourCuisineImage from '../assets/images/el-cielo-kitchen-prep-saturated-1024px.jpg';
+import communityImage from '../assets/images/el-cielo-community-saturated-960px.jpg';
 
 export default function About({ headerEl}) {
   const aboutSectionRef = useRef();
@@ -86,7 +87,12 @@ export default function About({ headerEl}) {
       <section className='our-story twoCol rowReverse'>
         <div className='heading'>
           <h2 className='reveal'>El Cielo</h2>
-          <img className='reveal' src={ourStoryImage} alt='El Cielo Concept' loading='lazy' />
+          <img
+            className='reveal'
+            src={ourStoryImage}
+            alt='El Cielo Concept'
+            loading='lazy'
+          />
         </div>
         <div className='content'>
           <p className='reveal'>
@@ -109,7 +115,7 @@ export default function About({ headerEl}) {
           <h2 className='reveal'>Our Cuisine</h2>
           <img
             className='reveal'
-            src={philosophyImage}
+            src={ourCuisineImage}
             alt='El Cielo Philosophy'
             loading='lazy'
           />
@@ -131,9 +137,15 @@ export default function About({ headerEl}) {
         </div>
       </section>
 
-      <section className='community'>
+      <section className='community twoCol rowReverse'>
         <div className='heading'>
           <h2 className='reveal'>Community</h2>
+          <img
+            className='reveal'
+            src={communityImage}
+            alt='El Cielo Community'
+            loading='lazy'
+          />
         </div>
         <div className='content'>
           <p className='reveal'>
