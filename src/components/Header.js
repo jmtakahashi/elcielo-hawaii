@@ -17,9 +17,7 @@ export default function Header() {
   const location = useLocation();
 
   React.useEffect(() => {
-    if (headerRef.current) return;
-
-    console.log(headerRef.current);
+    if (!headerRef.current) return;
 
     const resizeObserver = new ResizeObserver(() => {
       const height = headerRef.current.getBoundingClientRect().height;

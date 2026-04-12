@@ -1,6 +1,7 @@
 import React from 'react';
 import { useHeader } from '../contexts/HeaderContext';
 import useRevealOnScroll from '../hooks/useRevealOnScroll';
+import useHeaderTransparencyOnScroll from '../hooks/useHeaderTransparencyOnScroll';
 
 import masaImage from '../assets/images/el-cielo-masa-gushiken-saturated-1024px.jpg';
 import ourStoryImage from '../assets/images/el-cielo-interior-angle-saturated-1024px.jpg';
@@ -15,27 +16,7 @@ export default function About() {
   useRevealOnScroll();
 
   // header transparency on scroll
-  React.useEffect(() => {
-    const observedSection = aboutSectionRef.current;
-
-    const handleScroll = (e) => {
-      if (!observedSection || !headerEl) return;
-
-      const observedSectionTop = observedSection.getBoundingClientRect().top;
-
-      if (observedSectionTop < headerHeight) {
-        headerEl.classList.add('scrolledPastHero');
-      } else {
-        headerEl.classList.remove('scrolledPastHero');
-      }
-    };
-
-    document.addEventListener('scroll', handleScroll);
-
-    return () => {
-      document.removeEventListener('scroll', handleScroll);
-    };
-  }, [headerHeight, headerEl]);
+  useHeaderTransparencyOnScroll(aboutSectionRef, headerEl, headerHeight);
 
   return (
     <div id='about'>

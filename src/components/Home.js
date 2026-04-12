@@ -1,7 +1,7 @@
 import React from 'react';
 import { useHeader } from '../contexts/HeaderContext';
 import useRevealOnScroll from '../hooks/useRevealOnScroll';
-// import useHeaderObserver from '../hooks/useHeaderObserver';
+import useHeaderTransparencyOnScroll from '../hooks/useHeaderTransparencyOnScroll';
 
 export default function Home() {
   const storySectionRef = React.useRef();
@@ -11,27 +11,7 @@ export default function Home() {
   useRevealOnScroll();
 
   // header transparency on scroll
-  React.useEffect(() => {
-    const observedSection = storySectionRef.current;
-
-    const handleScroll = (e) => {
-      if (!observedSection || !headerEl) return;
-
-      const observedSectionTop = observedSection.getBoundingClientRect().top;
-
-      if (observedSectionTop < headerHeight) {
-        headerEl.classList.add('scrolledPastHero');
-      } else {
-        headerEl.classList.remove('scrolledPastHero');
-      }
-    };
-
-    document.addEventListener('scroll', handleScroll);
-
-    return () => {
-      document.removeEventListener('scroll', handleScroll);
-    };
-  }, [headerHeight, headerEl]);
+  useHeaderTransparencyOnScroll(storySectionRef, headerEl, headerHeight);
 
   return (
     <div id='home'>

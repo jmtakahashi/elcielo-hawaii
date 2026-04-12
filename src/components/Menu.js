@@ -1,6 +1,7 @@
 import React from 'react';
 import { useHeader } from '../contexts/HeaderContext';
 import useRevealOnScroll from '../hooks/useRevealOnScroll';
+import useHeaderTransparencyOnScroll from '../hooks/useHeaderTransparencyOnScroll';
 
 import menuImageOne from '../assets/images/el-cielo-menu-1-1024px.jpg';
 import menuImageTwo from '../assets/images/el-cielo-menu-2-1024px.jpg';
@@ -19,27 +20,7 @@ export default function Menu() {
   useRevealOnScroll();
 
   // header transparency on scroll
-  React.useEffect(() => {
-    const observedSection = menuSectionRef.current;
-
-    const handleScroll = (e) => {
-      if (!observedSection || !headerEl) return;
-
-      const observedSectionTop = observedSection.getBoundingClientRect().top;
-
-      if (observedSectionTop < headerHeight) {
-        headerEl.classList.add('scrolledPastHero');
-      } else {
-        headerEl.classList.remove('scrolledPastHero');
-      }
-    };
-
-    document.addEventListener('scroll', handleScroll);
-
-    return () => {
-      document.removeEventListener('scroll', handleScroll);
-    };
-  }, [headerHeight, headerEl]);
+  useHeaderTransparencyOnScroll(menuSectionRef, headerEl, headerHeight);
 
   const openPDF = (menu) => {
     window.open(`/menu/${menu}.pdf`, '_blank'); // Opens in a new tab
