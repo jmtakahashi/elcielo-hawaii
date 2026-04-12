@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { HeaderProvider } from '../contexts/HeaderContext';
 import { Routes, Route } from 'react-router';
 import Header from './Header';
