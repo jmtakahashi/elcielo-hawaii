@@ -1,5 +1,7 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { useHeader } from '../contexts/HeaderContext';
+import useRevealOnScroll from '../hooks/useRevealOnScroll';
+
 import menuImageOne from '../assets/images/el-cielo-menu-1-1024px.jpg';
 import menuImageTwo from '../assets/images/el-cielo-menu-2-1024px.jpg';
 import menuImageFour from '../assets/images/el-cielo-menu-4-1024px.jpg';
@@ -10,41 +12,14 @@ import menuImageEight from '../assets/images/el-cielo-menu-8-1024px.jpg';
 import menuImageNine from '../assets/images/el-cielo-menu-9-1024px.jpg';
 
 export default function Menu() {
-  const menuSectionRef = useRef();
+  const menuSectionRef = React.useRef();
   const { headerHeight, headerEl } = useHeader();
 
   // fade into view on scroll
-  useEffect(() => {
-    const callback = (entries, observer) => {
-      let delay = 0;
-
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.transitionDelay = `${delay}ms`;
-          delay += 80;
-          entry.target.classList.add('revealed');
-          observer.unobserve(entry.target);
-        }
-      })
-    };
-
-    const options = {
-      root: null,
-      threshold: 0,
-      rootMargin: '0px 0px -10% 0px'
-    };
-
-    const observer = new IntersectionObserver(callback, options);
-
-    for (let el of document.getElementsByClassName('reveal')) {
-      observer.observe(el); // give it the element to observe
-    }
-
-    return () => observer.disconnect(); // cleanup on unmount
-  }, []);
+  useRevealOnScroll();
 
   // header transparency on scroll
-  useEffect(() => {
+  React.useEffect(() => {
     const observedSection = menuSectionRef.current;
 
     const handleScroll = (e) => {

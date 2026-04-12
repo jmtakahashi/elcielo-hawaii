@@ -1,18 +1,25 @@
-import React, { useRef, useEffect, useState } from 'react'
-import { useHeader } from '../contexts/HeaderContext';
+import React from 'react';
 import { Link, NavLink, useLocation } from 'react-router';
+import { useHeader } from '../contexts/HeaderContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebook, faInstagram, faYelp, faGoogle } from '@fortawesome/free-brands-svg-icons';
+import {
+  faFacebook,
+  faInstagram,
+  faYelp,
+  faGoogle,
+} from '@fortawesome/free-brands-svg-icons';
 import logo from '../assets/images/el-cielo-logo-no-border-500px.png';
 
 export default function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const headerRef = useRef(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
+  const headerRef = React.useRef(null);
   const { setHeaderHeight, setHeaderEl } = useHeader();
   const location = useLocation();
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (headerRef.current) return;
+
+    console.log(headerRef.current);
 
     const resizeObserver = new ResizeObserver(() => {
       const height = headerRef.current.getBoundingClientRect().height;
@@ -34,12 +41,12 @@ export default function Header() {
   }, [setHeaderHeight, setHeaderEl]);
 
   // Close mobile menu on route change
-  useEffect(() => {
+  React.useEffect(() => {
     setMobileMenuOpen(false);
   }, [location.pathname]);
 
   // Lock body scroll when mobile menu is open
-  useEffect(() => {
+  React.useEffect(() => {
     if (mobileMenuOpen) {
       document.body.style.overflow = 'hidden';
     } else {
@@ -55,11 +62,7 @@ export default function Header() {
     <header ref={headerRef} className='header'>
       <Link to='/'>
         <h1 hidden>El Cielo Hawaii</h1>
-        <img
-          src={logo}
-          alt='El Cielo Hawaii Logo'
-          className='logo'
-        />
+        <img src={logo} alt='El Cielo Hawaii Logo' className='logo' />
       </Link>
 
       <nav className='nav desktop'>
@@ -138,11 +141,7 @@ export default function Header() {
         className={`mobileMenu ${mobileMenuOpen ? 'open' : ''}`}
         onClick={() => setMobileMenuOpen(false)}
       >
-        <img
-          src={logo}
-          alt='El Cielo Hawaii Logo'
-          className='logo'
-        />
+        <img src={logo} alt='El Cielo Hawaii Logo' className='logo' />
         <nav className='nav'>
           <NavLink
             to='/'
