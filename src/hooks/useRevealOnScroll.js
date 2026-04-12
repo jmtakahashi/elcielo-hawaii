@@ -3,12 +3,8 @@ import React from 'react';
 const useRevealOnScroll = () => {
   React.useEffect(() => {
     const callback = (entries, observer) => {
-      let delay = 0;
-
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.style.transitionDelay = `${delay}ms`;
-          delay += 80;
           entry.target.classList.add('revealed');
           observer.unobserve(entry.target);
         }
