@@ -4,9 +4,10 @@ const HeaderContext = createContext();
 
 export function HeaderProvider({ children }) {
   const [headerHeight, setHeaderHeight] = useState(0);
+  const [headerEl, setHeaderEl] = useState(null);
 
   return (
-    <HeaderContext.Provider value={{ headerHeight, setHeaderHeight }}>
+    <HeaderContext.Provider value={{ headerHeight, setHeaderHeight, headerEl, setHeaderEl }}>
       {children}
     </HeaderContext.Provider>
   );

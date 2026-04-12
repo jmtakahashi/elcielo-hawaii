@@ -5,9 +5,9 @@ import ourStoryImage from '../assets/images/el-cielo-interior-angle-saturated-10
 import ourCuisineImage from '../assets/images/el-cielo-kitchen-prep-saturated-1024px.jpg';
 import communityImage from '../assets/images/el-cielo-community-saturated-960px.jpg';
 
-export default function About({ headerEl}) {
+export default function About() {
   const aboutSectionRef = useRef();
-  const { headerHeight } = useHeader();
+  const { headerHeight, headerEl } = useHeader();
 
   // fade into view on scroll
   useEffect(() => {

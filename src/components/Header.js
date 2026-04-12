@@ -5,16 +5,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faInstagram, faYelp, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import logo from '../assets/images/el-cielo-logo-no-border-500px.png';
 
-export default function Header({ setHeaderEl }) {
+export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const headerRef = useRef(null);
-  const { setHeaderHeight } = useHeader();
+  const { setHeaderHeight, setHeaderEl } = useHeader();
   const location = useLocation();
 
   useEffect(() => {
-    if (!headerRef.current) return;
+    if (headerRef.current) return;
 
-    const resizeObserver = new ResizeObserver(([entry]) => {
+    const resizeObserver = new ResizeObserver(() => {
       const height = headerRef.current.getBoundingClientRect().height;
 
       // set CSS variable for use in css
@@ -23,10 +23,8 @@ export default function Header({ setHeaderEl }) {
         `${height}px`,
       );
 
-      // set state for use in intersection observer
+      // set header height and ref for use in intersection observer
       setHeaderHeight(height);
-
-      // set the header ref for use in intersection observer
       setHeaderEl(headerRef.current);
     });
 
@@ -40,7 +38,7 @@ export default function Header({ setHeaderEl }) {
     setMobileMenuOpen(false);
   }, [location.pathname]);
 
-  // 🔒 Lock body scroll when open
+  // Lock body scroll when mobile menu is open
   useEffect(() => {
     if (mobileMenuOpen) {
       document.body.style.overflow = 'hidden';
@@ -48,7 +46,6 @@ export default function Header({ setHeaderEl }) {
       document.body.style.overflow = '';
     }
 
-    // Cleanup safety
     return () => {
       document.body.style.overflow = '';
     };

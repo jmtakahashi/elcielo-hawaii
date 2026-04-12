@@ -9,9 +9,9 @@ import menuImageSeven from '../assets/images/el-cielo-menu-7-1024px.jpg';
 import menuImageEight from '../assets/images/el-cielo-menu-8-1024px.jpg';
 import menuImageNine from '../assets/images/el-cielo-menu-9-1024px.jpg';
 
-export default function Menu({ headerEl }) {
+export default function Menu() {
   const menuSectionRef = useRef();
-  const { headerHeight } = useHeader();
+  const { headerHeight, headerEl } = useHeader();
 
   // fade into view on scroll
   useEffect(() => {

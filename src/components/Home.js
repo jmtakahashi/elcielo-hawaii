@@ -1,9 +1,9 @@
 import { useEffect, useRef } from 'react';
 import { useHeader } from '../contexts/HeaderContext';
 
-export default function Home({ headerEl }) {
+export default function Home() {
   const storySectionRef = useRef();
-  const { headerHeight } = useHeader();
+  const { headerHeight, headerEl } = useHeader();
 
   // fade into view on scroll
   useEffect(() => {
