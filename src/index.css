@@ -31,9 +31,13 @@ beige: #b8b991, rgb(184, 185, 145)
   --border-color: var(--accent);
 
   --hero-bg-color: linear-gradient(
-    rgba(1, 59, 71, 0.00),
-    rgba(1, 59, 71, 0.60),
-    rgba(1, 59, 71, 0.00)
+    rgba(255, 255, 255, 0.5),
+    rgba(1, 59, 71, 0.75),
+    rgba(255, 255, 255, 0.25)
+  );
+  --hero-bg-color: radial-gradient(
+    rgba(1, 59, 71, 0.85),
+    rgba(255, 255, 255, 0.55)
   );
   --hero-text-color: var(--secondary-color);
 }
