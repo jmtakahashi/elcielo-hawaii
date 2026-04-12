@@ -82,6 +82,10 @@ h2 {
   }
 }
 
+#root {
+  position: relative;
+}
+
 .link-button {
   padding: 0.25em 0;
   background-color: transparent;
@@ -125,7 +129,7 @@ h2 {
   background-color: var(--off-white);
   padding: 24px;
   color: var(--secondary-color);
-  z-index: 100;
+  z-index: 1;
   transition: background-color 0.3s ease;
 }
 

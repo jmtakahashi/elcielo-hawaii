@@ -12,22 +12,20 @@ const NotFound  = React.lazy(() => import('./NotFound'));
 
 function App() {
   return (
-    <div className='container'>
-      <HeaderProvider>
-        <Header />
-        <main className='main'>
-          <React.Suspense fallback={<Loading />}>
-            <Routes>
-              <Route path='/' exact element={<Home />} />
-              <Route path='/menu' element={<Menu />} />
-              <Route path='/about' element={<About />} />
-              <Route path='*' element={<NotFound />} />
-            </Routes>
-          </React.Suspense>
-        </main>
-        <Footer />
-      </HeaderProvider>
-    </div>
+    <HeaderProvider>
+      <Header />
+      <main className='main'>
+        <React.Suspense fallback={<Loading />}>
+          <Routes>
+            <Route path='/' exact element={<Home />} />
+            <Route path='/menu' element={<Menu />} />
+            <Route path='/about' element={<About />} />
+            <Route path='*' element={<NotFound />} />
+          </Routes>
+        </React.Suspense>
+      </main>
+      <Footer />
+    </HeaderProvider>
   );
 }
 
